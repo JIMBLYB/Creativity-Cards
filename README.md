@@ -1,4 +1,4 @@
-# Creativity-Cards
+# Creativity Cards
 
 ## The Team
 Harry Donovan - Programmer\
@@ -14,11 +14,11 @@ Naomi Fielder - Designer helping with art/animations
 * Rules - Flow
 * Wildcard - Visible probabilities for all actions
 
-##Initial Idea
+## Initial Idea
 
-Farmer protecting home from heroes trying to loot it to protect his winning gourd for the harvest festival. 
-Hit the correct button to continue the combo, choice of attacks with different damage/ chance to hit.
-Choose a combo (Pokemon style choose attacks) and then have to hit the right buttons to do it.
+Farmer protecting home from heroes trying to loot it to protect his winning gourd for the harvest festival.\
+Hit the correct button to continue the combo, choice of attacks with different damage/ chance to hit.\
+Choose a combo (Pokemon style choose attacks) and then have to hit the right buttons to do it.\
 Pixel art
 
 ### To-Do List
@@ -32,11 +32,15 @@ Pixel art
 
 #### Should Have
 * Magic/ special attacks from mythical animals
-* 
-
+* Several different animals (3-5)
+* Different enemy types (Rogue, fighter etc.) (3-5)
+* Animations
 
 #### Could Have
-
+* Tutorial
+* Boss fights
+* More animals
+* More enemies
 
 #### Won't Have
 * Endless mode
