@@ -1,10 +1,10 @@
 # Creativity-Cards
 
 ## The Team
-Harry Donovan - Programmer/
-Tom Trathen - Audio/
-James Berry - Programmer/
-Lewis Reynolds - Artist/
+Harry Donovan - Programmer\
+Tom Trathen - Audio\
+James Berry - Programmer\
+Lewis Reynolds - Artist\
 Naomi Fielder - Designer helping with art/animations
 
 ## Constraints
@@ -32,6 +32,7 @@ Pixel art
 
 #### Should Have
 * Magic/ special attacks from mythical animals
+* 
 
 
 #### Could Have
