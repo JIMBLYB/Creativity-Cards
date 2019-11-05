@@ -35,6 +35,7 @@ Pixel art
 * Several different animals (3-5)
 * Different enemy types (Rogue, fighter etc.) (3-5)
 * Animations
+* Quick time events synced to the soundtrack
 
 #### Could Have
 * Tutorial
