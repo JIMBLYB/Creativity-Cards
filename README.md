@@ -5,7 +5,8 @@ Harry Donovan - Programmer\
 Tom Trathen - Audio\
 James Berry - Programmer\
 Lewis Reynolds - Artist\
-Naomi Fielder - Designer helping with art/animations
+Naomi Fielder - Designer helping with art/animations\
+Alex Williamson - Programmer
 
 ## Constraints
 * Genre - Beat-Em Up
