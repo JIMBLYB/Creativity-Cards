@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Basic information and stats
+    // Basic information
     public string enemyName;
     public Mesh model;
 
+    // Basic Stats
     public int health;
-
     public int damage;
 
     // Removes health based on damage
