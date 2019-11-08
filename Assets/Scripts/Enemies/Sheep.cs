@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sheep : MonoBehaviour
+public class Sheep : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int hp;
+    public int dmg;
+    public float hevMod;
 
-    // Update is called once per frame
-    void Update()
+    public override void Awake()
     {
-        
+        base.Awake();
+        Enemy Sheep = new Enemy("Sheep", hp, dmg, hevMod);
     }
 }
