@@ -16,6 +16,16 @@ public class Enemy : MonoBehaviour
     public int moneyEarned;
     // Add particle effect if needed
 
+    // References to other object/scripts
+    [SerializeField]
+    private GameObject gameController;
+
+    // Any initialization
+    public void Awake()
+    {
+        gameController = GameObject.FindWithTag("GameController");
+    }
+
     // Removes health based on damage
     public void TakeDamage(int hitDamage)
     {
