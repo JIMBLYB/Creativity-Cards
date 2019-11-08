@@ -293,6 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
+  maxHealth: 0
+  health: 0
 --- !u!4 &1221322028
 Transform:
   m_ObjectHideFlags: 0

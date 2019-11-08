@@ -47,5 +47,5 @@ MonoBehaviour:
   model: {fileID: 0}
   health: 1
   damage: 1
+  heavyModifier: 1.5
   moneyEarned: 1
-  gameController: {fileID: 0}
