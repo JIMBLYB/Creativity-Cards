@@ -28,4 +28,14 @@ public class Enemy : MonoBehaviour
         Debug.Log(enemyName + " has died");
         Object.Destroy(this);
     }
+
+    public void LightAttack()
+    {
+        // Deal 1.0x damage
+    }
+
+    public void HeavyAttack()
+    {
+        // Deal 1.5x damage
+    }
 }
