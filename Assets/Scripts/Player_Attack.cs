@@ -9,26 +9,24 @@ public class movement : MonoBehaviour
     private bool  going;
     private bool returning;
     private bool moving;
+    private GameObject targeted_enemy;
+    private object selected_attack;
     public float movement_speed;
     void Update()
     {
-        //if left click is pressed
+        //IF AN ATTACK IS SELECTED IN THE UI
+            //selected_attack = the attack that was selected
         if (Input.GetMouseButtonDown(0))
         {
-            //if the player isn't already moving
             if (!moving)
             {
-                //find what the mouse has clicked on
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                //if the mouse clicked on an object
                 if (Physics.Raycast(ray, out hit))
                 {
-
-                    //if the object is an enemy
                     if (hit.transform.tag == "Enemy")
                     {
-                        //finds where the player will have to move to to stand in front of the enemy
+                        targeted_enemy = hit.transform.gameObject;
                         moving = true;
                         start_point = transform.position;
                         destination = hit.transform.position - transform.position;
@@ -46,37 +44,33 @@ public class movement : MonoBehaviour
                 }
             }
         }
-        //if the player should be moving towards the enemy
         if(going)
         {
-            //move the player towards the enemy
             transform.position = Vector3.MoveTowards(transform.position, destination, movement_speed);
-            //if the player has arrived
             if (transform.position == destination)
             {
-                //right now it only waits, but when attacks are coded in change this to an attack function
-                StartCoroutine(attack_placeholder());
                 going = false;
+                //PLAY ANIMATION
+                if (Random.Range(0.0f, 100.0f) < gameObject.Attack_Class.accuracy)
+                {
+                    enemy.Enemy_Class.health -= gameObject.Attack_Class.damage;
+                    //DISPLAY DAMAGE NUMBERS IN UI
+                }
+                else
+                {
+                    //DISPLAY MISS MESSAGE IN UI
+                }
+                returning = true;
             }
         }
-        //if the player should be going back to it's original position (after attacking)
         if (returning)
         {
-            //move the player towards their original position
             transform.position = Vector3.MoveTowards(transform.position, start_point, movement_speed);
-            //if they arrive
             if (transform.position == start_point)
             {
-                //stop moving, can now move again. This will probably have to be altered when we implement turns.
                 returning = false;
                 moving = false;
             }
         }
-    }
-    //wait for one second, then the player returns to their start position
-    IEnumerator attack_placeholder()
-    {
-        yield return new WaitForSeconds(1);
-        returning = true;
     }
 }
