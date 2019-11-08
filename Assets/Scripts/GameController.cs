@@ -7,9 +7,14 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public int money;
 
+    [SerializeField]
+    public int maxHealth;
+    public int health;
+
     public void Awake()
     {
         DontDestroyOnLoad(this);
+        health = maxHealth;
         money = 0;
     }
 }
