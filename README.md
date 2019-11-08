@@ -1,12 +1,21 @@
 # Creativity Cards
 
 ## The Team
-Harry Donovan - Programmer\
-Tom Trathen - Audio\
-James Berry - Programmer\
-Lewis Reynolds - Artist\
-Naomi Fielder - Designer helping with art/animations\
-Alex Williamson - Programmer
+
+### Programmers
+Harry Donovan\
+James Berry\
+Alex Williamson
+
+### Artists
+Lewis Reynolds
+
+### Audio
+Tom Trathen
+
+### Designers
+Naomi Fielder (Also helping with art and animation)
+
 
 ## Constraints
 * Genre - Beat-Em Up
