@@ -37,18 +37,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // All procudures following death
     public void Die()
     {
+        // Gives moneyEarned value to player
         gameController.money += moneyEarned;
         Debug.Log(enemyName + " has died");
         Object.Destroy(this);
     }
 
+    // Light attack dealing base damage
     public void LightAttack()
     {
         gameController.health -= damage;
     }
 
+    // Heavy attack dealing a damage multiplicative of the heavy modifier
+    // (Default modifier = 1.5)
     public void HeavyAttack()
     {
         gameController.health -= Mathf.FloorToInt(damage * heavyModifier);
