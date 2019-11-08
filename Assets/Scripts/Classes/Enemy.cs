@@ -18,9 +18,15 @@ public class Enemy : MonoBehaviour
     // Add particle effect if needed
 
     // References to other object/scripts
-    private GameController gameController;
+    private GameController gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
 
     // Constructors for varying amounts of inputs
+    //public enemy()
+    //{
+    //    health = 1;
+    //    damage = 1;
+    //    heavymodifier = 1.5f;
+    //}
     public Enemy(int hp, int dmg)
     {
         health = hp;
@@ -50,10 +56,9 @@ public class Enemy : MonoBehaviour
     }
 
     // Any initialization
-    public void Awake()
+    public virtual void Awake()
     {
         name = enemyName;
-        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
     // "Intelligently" chooses which type of attack to perform
