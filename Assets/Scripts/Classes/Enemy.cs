@@ -20,9 +20,39 @@ public class Enemy : MonoBehaviour
     // References to other object/scripts
     private GameController gameController;
 
+    // Constructors for varying amounts of inputs
+    public Enemy(int hp, int dmg)
+    {
+        health = hp;
+        damage = dmg;
+    }
+
+    public Enemy(string name, int hp, int dmg)
+    {
+        enemyName = name;
+        health = hp;
+        damage = dmg;
+    }
+
+    public Enemy(int hp, int dmg, float hevMod)
+    {
+        health = hp;
+        damage = dmg;
+        heavyModifier = hevMod;
+    }
+
+    public Enemy(string name, int hp, int dmg, float hevMod)
+    {
+        enemyName = name;
+        health = hp;
+        damage = dmg;
+        heavyModifier = hevMod;
+    }
+
     // Any initialization
     public void Awake()
     {
+        name = enemyName;
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
