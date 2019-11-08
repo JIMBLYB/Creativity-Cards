@@ -26,6 +26,20 @@ public class Enemy : MonoBehaviour
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
+
+    // Light attack dealing base damage
+    public void LightAttack()
+    {
+        gameController.health -= damage;
+    }
+
+    // Heavy attack dealing a damage multiplicative of the heavy modifier
+    // (Default modifier = 1.5)
+    public void HeavyAttack()
+    {
+        gameController.health -= Mathf.FloorToInt(damage * heavyModifier);
+    }
+
     // Removes health based on damage
     public void TakeDamage(int hitDamage)
     {
@@ -44,18 +58,5 @@ public class Enemy : MonoBehaviour
         gameController.money += moneyEarned;
         Debug.Log(enemyName + " has died");
         Object.Destroy(this);
-    }
-
-    // Light attack dealing base damage
-    public void LightAttack()
-    {
-        gameController.health -= damage;
-    }
-
-    // Heavy attack dealing a damage multiplicative of the heavy modifier
-    // (Default modifier = 1.5)
-    public void HeavyAttack()
-    {
-        gameController.health -= Mathf.FloorToInt(damage * heavyModifier);
     }
 }
