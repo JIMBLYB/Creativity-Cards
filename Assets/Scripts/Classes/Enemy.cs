@@ -26,6 +26,22 @@ public class Enemy : MonoBehaviour
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
+    // "Intelligently" chooses which type of attack to perform
+    public void DecidingAttack()
+    {
+        // Randomly chooses based on bool value
+        switch (Random.value > 0.5f)
+        {
+            case false:
+                LightAttack();
+                break;
+
+            case true:
+                HeavyAttack();
+                break;
+        }
+    }
+
     // Light attack dealing base damage
     public void LightAttack()
     {
