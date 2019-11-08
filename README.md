@@ -3,8 +3,8 @@
 ## The Team
 
 ### Programmers
-Harry Donovan
-James Berry
+Harry Donovan\
+James Berry\
 Alex Williamson
 
 ### Artists
