@@ -12,6 +12,10 @@ public class Enemy : MonoBehaviour
     public int health;
     public int damage;
 
+    // What happens when this enemy dies
+    public int moneyEarned;
+    // Add particle effect if needed
+
     // Removes health based on damage
     public void TakeDamage(int hitDamage)
     {
