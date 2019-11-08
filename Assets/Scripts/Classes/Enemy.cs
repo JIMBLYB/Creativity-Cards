@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
-
     // Light attack dealing base damage
     public void LightAttack()
     {
