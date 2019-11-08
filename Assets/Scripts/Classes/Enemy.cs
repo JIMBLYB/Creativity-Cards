@@ -17,13 +17,12 @@ public class Enemy : MonoBehaviour
     // Add particle effect if needed
 
     // References to other object/scripts
-    [SerializeField]
-    private GameObject gameController;
+    private GameController gameController;
 
     // Any initialization
     public void Awake()
     {
-        gameController = GameObject.FindWithTag("GameController");
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
     // Removes health based on damage
@@ -39,6 +38,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        gameController.money += moneyEarned;
         Debug.Log(enemyName + " has died");
         Object.Destroy(this);
     }

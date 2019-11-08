@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField]
-    private int money;
+    [HideInInspector]
+    public int money;
 
     public void Awake()
     {
