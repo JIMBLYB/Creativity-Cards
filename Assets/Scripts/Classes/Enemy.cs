@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     // Basic Stats
     public int health;
     public int damage;
+    public float heavyModifier;
 
     // What happens when this enemy dies
     public int moneyEarned;
@@ -45,11 +46,11 @@ public class Enemy : MonoBehaviour
 
     public void LightAttack()
     {
-        // Deal 1.0x damage
+        gameController.health -= damage;
     }
 
     public void HeavyAttack()
     {
-        // Deal 1.5x damage
+        gameController.health -= Mathf.FloorToInt(damage * heavyModifier);
     }
 }
