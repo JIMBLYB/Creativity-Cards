@@ -29,8 +29,9 @@ public class QTFramework : MonoBehaviour
     // This should be passed to the framework
     private List<KeyCode> sequence = new List<KeyCode>();
 
-    private GameObject displaySpace;
-    public int displayOffset = 10;
+    public GameObject displaySpace;
+    public int displayOffset = 5;
+    public int keySpeed = 1;
 
     public QTFramework(GameObject displaySpace)
     {
@@ -39,6 +40,14 @@ public class QTFramework : MonoBehaviour
 
     public void runQTEvent(List<KeyCode> sequence)
     {
+        void Start()
+        {
+            
+        }
 
+        void Update()
+        {
+
+        }
     }
 }
