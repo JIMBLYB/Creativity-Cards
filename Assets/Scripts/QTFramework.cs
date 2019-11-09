@@ -24,4 +24,8 @@ public class QTFramework : MonoBehaviour
     };
 
     private Response QTResponse = Response.Null;
+
+    // Stores the keys in the quick time event sequence.
+    // This should be passed to the framework
+    public List<KeyCode> sequence = new List<KeyCode>();
 }
