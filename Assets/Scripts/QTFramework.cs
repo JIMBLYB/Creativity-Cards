@@ -5,6 +5,9 @@ using UnityEngine;
 // Quick time event handler.
 // Code from https://gist.github.com/grimmdev/b85994d1b7cad444eb69 has been used as inspiration.
 
+// This class has been designed to be added to a game object which defines the area you want the quick time event to occur in. 
+// The function runQTEvent should then be called whenever a quick time event should run and must be passed the sequence of key presses to display
+
 public class QTFramework : MonoBehaviour
 {
     private enum CurrentState 
