@@ -27,5 +27,18 @@ public class QTFramework : MonoBehaviour
 
     // Stores the keys in the quick time event sequence.
     // This should be passed to the framework
-    public List<KeyCode> sequence = new List<KeyCode>();
+    private List<KeyCode> sequence = new List<KeyCode>();
+
+    private GameObject displaySpace;
+    public int displayOffset = 10;
+
+    public QTFramework(GameObject displaySpace)
+    {
+
+    }
+
+    public void runQTEvent(List<KeyCode> sequence)
+    {
+
+    }
 }
