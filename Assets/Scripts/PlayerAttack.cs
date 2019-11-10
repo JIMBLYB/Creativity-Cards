@@ -6,7 +6,7 @@ public class movement : MonoBehaviour
 {
     private Vector3 destination;
     private Vector3 start_point;
-    private bool  going;
+    private bool going;
     private bool returning;
     private bool moving;
     private GameObject targeted_enemy;
@@ -15,7 +15,7 @@ public class movement : MonoBehaviour
     void Update()
     {
         //IF AN ATTACK IS SELECTED IN THE UI
-            //selected_attack = the attack that was selected
+        //selected_attack = the attack that was selected
         if (Input.GetMouseButtonDown(0))
         {
             if (!moving)
@@ -44,7 +44,8 @@ public class movement : MonoBehaviour
                 }
             }
         }
-        if(going)
+
+        if (going)
         {
             transform.position = Vector3.MoveTowards(transform.position, destination, movement_speed);
             if (transform.position == destination)
@@ -63,6 +64,7 @@ public class movement : MonoBehaviour
                 returning = true;
             }
         }
+
         if (returning)
         {
             transform.position = Vector3.MoveTowards(transform.position, start_point, movement_speed);

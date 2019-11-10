@@ -32,20 +32,34 @@ public class QTFramework : MonoBehaviour
     // This should be passed to the framework
     private List<KeyCode> sequence = new List<KeyCode>();
 
-    public int displayOffset = 5;
+    public int buttonOffset = 5;
     public int keySpeed = 1;
-    public Object buttonPreFab;
+    public Object buttonPrefab;
 
-    public static void runQTEvent(List<KeyCode> sequence)
+    public void ActivateQTEvent(List<KeyCode> sequence)
     {
-        void Start()
-        {
-            
-        }
+        // Gets the area the quick time event is happening in and uses it for refrence when placing the buttons. 
+        RectTransform QTArea;
+        QTArea = gameObject.GetComponent<RectTransform>();
 
-        void Update()
-        {
+        // Sets the x and y positions for the buttons to be constant
+        Vector3 buttonPos = new Vector3();
+        buttonPos.y = QTArea.position.y;
+        buttonPos.z = QTArea.position.z;
 
-        }
+        // Initialises an array to store all of the generated buttons for the quick time events
+        GameObject[] QTButtons = new GameObject[sequence.Count];
+
+        // Spawns all of the quick time buttons for the sequence
+        for (int i = 0; i < sequence.Count; i++) 
+        {
+            buttonPos.x = QTArea.position.x + buttonOffset * (i +  1); 
+            QTButtons[i] = Instantiate(buttonPrefab, buttonPos, new Quaternion()) as GameObject;
+        }  
+    }
+
+    public void RunQTEvent()
+    {
+        
     }
 }
