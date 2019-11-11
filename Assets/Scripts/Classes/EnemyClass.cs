@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Class : MonoBehaviour
+public class EnemyClass : MonoBehaviour
 {
     // Basic information
     public string enemyName;
@@ -21,33 +21,33 @@ public class Enemy_Class : MonoBehaviour
     private GameController gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
 
     // Constructors for varying amounts of inputs
-    public Enemy_Class()
+    public EnemyClass()
     {
        health = 1;
        damage = 1;
        heavyModifier = 1.5f;
     }
-    public Enemy_Class(int hp, int dmg)
+    public EnemyClass(int hp, int dmg)
     {
         health = hp;
         damage = dmg;
     }
 
-    public Enemy_Class(string name, int hp, int dmg)
+    public EnemyClass(string name, int hp, int dmg)
     {
         enemyName = name;
         health = hp;
         damage = dmg;
     }
 
-    public Enemy_Class(int hp, int dmg, float hevMod)
+    public EnemyClass(int hp, int dmg, float hevMod)
     {
         health = hp;
         damage = dmg;
         heavyModifier = hevMod;
     }
 
-    public Enemy_Class(string name, int hp, int dmg, float hevMod)
+    public EnemyClass(string name, int hp, int dmg, float hevMod)
     {
         enemyName = name;
         health = hp;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animal_Class : MonoBehaviour
+public class AnimalClass : MonoBehaviour
 {
     // GameObject references
     public GameController gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();

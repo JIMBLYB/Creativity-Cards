@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     private Vector3 destination;
     private Vector3 start_point;
@@ -52,9 +52,9 @@ public class movement : MonoBehaviour
             {
                 going = false;
                 //PLAY ANIMATION
-                if (Random.Range(0.0f, 100.0f) < gameObject.GetComponent<Attack_Class>().accuracy)
+                if (Random.Range(0.0f, 100.0f) < gameObject.GetComponent<AttackClass>().accuracy)
                 {
-                    targeted_enemy.GetComponent<Enemy_Class>().health -= gameObject.GetComponent<Attack_Class>().damage;
+                    targeted_enemy.GetComponent<EnemyClass>().TakeDamage(gameObject.GetComponent<AttackClass>().damage);
                     //DISPLAY DAMAGE NUMBERS IN UI
                 }
                 else

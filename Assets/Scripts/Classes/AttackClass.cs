@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack_Class : MonoBehaviour
+public class AttackClass : MonoBehaviour
 {
     public string attack_name;
     public int cooldown, ID, damage;
