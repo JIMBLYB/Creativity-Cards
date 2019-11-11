@@ -52,9 +52,9 @@ public class movement : MonoBehaviour
             {
                 going = false;
                 //PLAY ANIMATION
-                if (Random.Range(0.0f, 100.0f) < gameObject.Attack_Class.accuracy)
+                if (Random.Range(0.0f, 100.0f) < gameObject.GetComponent<Attack_Class>().accuracy)
                 {
-                    enemy.Enemy_Class.health -= gameObject.Attack_Class.damage;
+                    targeted_enemy.GetComponent<Enemy_Class>().health -= gameObject.GetComponent<Attack_Class>().damage;
                     //DISPLAY DAMAGE NUMBERS IN UI
                 }
                 else
