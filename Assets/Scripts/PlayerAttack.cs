@@ -54,7 +54,7 @@ public class PlayerAttack : MonoBehaviour
                 //PLAY ANIMATION
                 if (Random.Range(0.0f, 100.0f) < gameObject.GetComponent<AttackClass>().accuracy)
                 {
-                    targeted_enemy.GetComponent<EnemyClass>().TakeDamage(gameObject.GetComponent<AttackClass>().damage);
+                    targeted_enemy.GetComponent<EnemyClass>().health -= gameObject.GetComponent<AttackClass>().damage;
                     //DISPLAY DAMAGE NUMBERS IN UI
                 }
                 else
