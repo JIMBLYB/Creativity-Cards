@@ -10,11 +10,15 @@ Alex Williamson
 ### Artists
 Lewis Reynolds
 
+### Animation
+Adam Lambert
+
 ### Audio
 Tom Trathen
 
 ### Designers
-Naomi Fielder (Also helping with art and animation)
+Naomi Fielder (Also helping with art and animation)\
+Jack Keane
 
 
 ## Constraints
