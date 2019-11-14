@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3561246468755596062}
   - component: {fileID: 3561246468755596060}
   - component: {fileID: 3561246468755596063}
+  - component: {fileID: 2222900487702931980}
   m_Layer: 5
   m_Name: QTArea
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -74,3 +75,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &2222900487702931980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561246468755596057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d431f806be6fc4fa31c36950a64a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonOffset: 5
+  keySpeed: 1
+  buttonPrefab: {fileID: 5465145281432632548, guid: 732dcc289f0327845add1538e7eb4f72,
+    type: 3}

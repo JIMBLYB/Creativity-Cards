@@ -30,12 +30,13 @@ public class QTFramework : MonoBehaviour
 
     // Stores the keys in the quick time event sequence.
     // This should be passed to the framework
-    private List<KeyCode> sequence;
+    public List<KeyCode> sequence;
 
     public int buttonOffset = 5;
     public int keySpeed = 1;
-    public Object buttonPrefab;
+    public GameObject buttonPrefab;
     private RectTransform QTArea;
+    private bool firstRun = true;
 
     void Start() 
     {
@@ -45,12 +46,11 @@ public class QTFramework : MonoBehaviour
 
     void Update()
     {
-        bool firstRun = true;
-
         if(firstRun)
         {
             if (sequence != null)
             {
+                firstRun = false;
                 //Initialises an array to store all of the generated buttons for the quick time events
                 GameObject[] QTButtons = new GameObject[sequence.Count];
 
@@ -58,11 +58,14 @@ public class QTFramework : MonoBehaviour
                 buttonPos.y = QTArea.position.y;
                 buttonPos.z = QTArea.position.z;
 
+                RectTransform buttonTransform = buttonPrefab.GetComponent<RectTransform>();
+                float buttonWidth = buttonTransform.sizeDelta.x;
+
                 // Spawns all of the quick time buttons for the sequence
                 for (int i = 0; i < sequence.Count; i++) 
                 {
-                    buttonPos.x = QTArea.position.x + buttonOffset * (i +  1); 
-                    QTButtons[i] = Instantiate(buttonPrefab, buttonPos, new Quaternion()) as GameObject;
+                    buttonPos.x = QTArea.position.x + buttonOffset * (i +  1) + buttonWidth * i; 
+                    QTButtons[i] = Instantiate(buttonPrefab, buttonPos, new Quaternion(), transform) as GameObject;
                 }  
             }
         }
