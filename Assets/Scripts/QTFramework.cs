@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+
 // Quick time event handler.
 // Code from https://gist.github.com/grimmdev/b85994d1b7cad444eb69 has been used as inspiration.
 
@@ -37,6 +39,7 @@ public class QTFramework : MonoBehaviour
     public GameObject buttonPrefab;
     private RectTransform QTArea;
     private bool firstRun = true;
+    private GameObject[] QTButtons;
 
     void Start() 
     {
@@ -44,15 +47,13 @@ public class QTFramework : MonoBehaviour
         QTArea = gameObject.GetComponent<RectTransform>();
     }
 
-    void Update()
+    private void GenerateButtons()
     {
-        if(firstRun)
-        {
-            if (sequence != null)
+        if (sequence != null)
             {
                 firstRun = false;
                 //Initialises an array to store all of the generated buttons for the quick time events
-                GameObject[] QTButtons = new GameObject[sequence.Count];
+                QTButtons = new GameObject[sequence.Count];
 
                 Vector3 buttonPos = new Vector3();
                 buttonPos.y = QTArea.position.y;
@@ -66,35 +67,24 @@ public class QTFramework : MonoBehaviour
                 {
                     buttonPos.x = QTArea.position.x + buttonOffset * (i +  1) + buttonWidth * i; 
                     QTButtons[i] = Instantiate(buttonPrefab, buttonPos, new Quaternion(), transform) as GameObject;
+
+                    TextMeshProUGUI buttonText = QTButtons[i].transform.GetComponentInChildren<TextMeshProUGUI>();
+                    buttonText.text = sequence[i].ToString();
                 }  
             }
-        }
     }
 
-    // public void ActivateQTEvent(List<KeyCode> sequence)
-    // {
-    //     // Gets the area the quick time event is happening in and uses it for refrence when placing the buttons. 
-    //     RectTransform QTArea;
-    //     QTArea = gameObject.GetComponent<RectTransform>();
+    void Update()
+    {
+        if(firstRun)
+        {
+            GenerateButtons();
+        }
 
-    //     // Sets the x and y positions for the buttons to be constant
-    //     Vector3 buttonPos = new Vector3();
-    //     buttonPos.y = QTArea.position.y;
-    //     buttonPos.z = QTArea.position.z;
-
-    //     // Initialises an array to store all of the generated buttons for the quick time events
-    //     GameObject[] QTButtons = new GameObject[sequence.Count];
-
-    //     // Spawns all of the quick time buttons for the sequence
-    //     for (int i = 0; i < sequence.Count; i++) 
-    //     {
-    //         buttonPos.x = QTArea.position.x + buttonOffset * (i +  1); 
-    //         QTButtons[i] = Instantiate(buttonPrefab, buttonPos, new Quaternion()) as GameObject;
-    //     }  
-    // }
-
-    // public void RunQTEvent()
-    // {
-        
-    // }
+        for (int i = 0; i < QTButtons.Length; i++)
+        {
+            QTButtons[i].transform.position -= new Vector3(keySpeed * Time.deltaTime, 0, 0);
+        }
+            
+    }
 }
