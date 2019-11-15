@@ -38,21 +38,12 @@ public class QTFramework : MonoBehaviour
     public int keySpeed = 1;
     public GameObject buttonPrefab;
     private RectTransform QTArea;
-    private bool firstRun = true;
     private List<GameObject> QTButtons = new List<GameObject>();
-
-    void Start() 
-    {
-        // Gets the area the quick time event is happening in and uses it for refrence when placing the buttons. 
-        QTArea = gameObject.GetComponent<RectTransform>();
-    }
 
     private void GenerateButtons()
     {
         if (sequence != null)
             {
-                firstRun = false;
-
                 // Sets y and z positions of the buttons as they will remain constant
                 Vector3 buttonPos = new Vector3();
                 buttonPos.y = QTArea.position.y;
@@ -78,14 +69,17 @@ public class QTFramework : MonoBehaviour
             }
     }
 
+    void Start() 
+    {
+        // Gets the area the quick time event is happening in and uses it for refrence when placing the buttons. 
+        QTArea = gameObject.GetComponent<RectTransform>();
+
+        // Generates quick time buttons
+        GenerateButtons();
+    }
+
     void Update()
     {
-        // Places the buttons in the QTArea if they haven't been placed already
-        if(firstRun)
-        {
-            GenerateButtons();
-        }
-
         // void OnTriggerStay2D(Collider2D other)
         // {
         //     KeyCode buttonKeyCode = (KeyCode)Enum.Parse(typeof(KeyCode), transform.GetComponentInChildren<TextMeshProUGUI>().text.ToString());
