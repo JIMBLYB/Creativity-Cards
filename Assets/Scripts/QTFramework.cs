@@ -73,6 +73,9 @@ public class QTFramework : MonoBehaviour
                     // 'as GameObject' means button is instanced as a GameObject rather than an Object
                     QTButtons[i] = Instantiate(buttonPrefab, buttonPos, new Quaternion(), transform) as GameObject;
 
+                    // Adds a collider to the button
+                    QTButtons[i].AddComponent<BoxCollider2D>();
+
                     // Gets the text component of the button and sets it to the buttons keycode
                     TextMeshProUGUI buttonText = QTButtons[i].transform.GetComponentInChildren<TextMeshProUGUI>();
                     buttonText.text = sequence[i].ToString();
