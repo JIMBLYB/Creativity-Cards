@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -80,15 +80,12 @@ public class QTFramework : MonoBehaviour
 
     void Update()
     {
-        // void OnTriggerStay2D(Collider2D other)
-        // {
-        //     KeyCode buttonKeyCode = (KeyCode)Enum.Parse(typeof(KeyCode), transform.GetComponentInChildren<TextMeshProUGUI>().text.ToString());
-
-        //     if (Input.GetKeyDown(buttonKeyCode))
-        //     {
-        //         Destroy(other.gameObject);
-        //     }
-        // }
+        if (Input.GetKeyDown(sequence[0]))
+        {
+            Destroy(QTButtons[0]);
+            QTButtons.RemoveAt(0);
+            sequence.RemoveAt(0);
+        }
 
         // Checks if any buttons have been deleted, then removes it from the list
         for (int i = 0; i < QTButtons.Count; i++)
@@ -96,6 +93,7 @@ public class QTFramework : MonoBehaviour
             if (QTButtons[i] == null)
             {
                 QTButtons.RemoveAt(i);
+                sequence.RemoveAt(i);
             }
         }
         
