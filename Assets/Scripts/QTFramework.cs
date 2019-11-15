@@ -55,19 +55,25 @@ public class QTFramework : MonoBehaviour
                 //Initialises an array to store all of the generated buttons for the quick time events
                 QTButtons = new GameObject[sequence.Count];
 
+                // Sets y and z positions of the buttons as they will remain constant
                 Vector3 buttonPos = new Vector3();
                 buttonPos.y = QTArea.position.y;
                 buttonPos.z = QTArea.position.z;
 
+                // Gets the width of the buttons so they can be instanced without overlapping
                 RectTransform buttonTransform = buttonPrefab.GetComponent<RectTransform>();
                 float buttonWidth = buttonTransform.sizeDelta.x;
 
                 // Spawns all of the quick time buttons for the sequence
                 for (int i = 0; i < sequence.Count; i++) 
                 {
+                    // Sets the position of the button to the right of the previous button
                     buttonPos.x = QTArea.position.x + buttonOffset * (i +  1) + buttonWidth * i; 
+                    // Instances a button at the new position as a child of the QTArea transform
+                    // 'as GameObject' means button is instanced as a GameObject rather than an Object
                     QTButtons[i] = Instantiate(buttonPrefab, buttonPos, new Quaternion(), transform) as GameObject;
 
+                    // Gets the text component of the button and sets it to the buttons keycode
                     TextMeshProUGUI buttonText = QTButtons[i].transform.GetComponentInChildren<TextMeshProUGUI>();
                     buttonText.text = sequence[i].ToString();
                 }  
@@ -76,11 +82,13 @@ public class QTFramework : MonoBehaviour
 
     void Update()
     {
+        // Places the buttons in the QTArea if they haven't been placed already
         if(firstRun)
         {
             GenerateButtons();
         }
 
+        // Moves the buttons to the left at a speed defined by keySpeed
         for (int i = 0; i < QTButtons.Length; i++)
         {
             QTButtons[i].transform.position -= new Vector3(keySpeed * Time.deltaTime, 0, 0);
