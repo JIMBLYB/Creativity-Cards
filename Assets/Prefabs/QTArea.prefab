@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 4903541229770721189}
   - component: {fileID: 2368489819861399543}
   - component: {fileID: 2116263211062512716}
-  - component: {fileID: 3624648238110588712}
   - component: {fileID: 42281791481249086}
+  - component: {fileID: 3143198881058495450}
   m_Layer: 5
   m_Name: ButtonDestroyer
   m_TagString: Untagged
@@ -190,7 +190,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!61 &3624648238110588712
+--- !u!114 &42281791481249086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409843938463276041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17001c93e111db40af6d38a43c1e5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &3143198881058495450
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +212,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -216,18 +228,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &42281791481249086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409843938463276041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b17001c93e111db40af6d38a43c1e5fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3561246468755596057
 GameObject:
   m_ObjectHideFlags: 0
