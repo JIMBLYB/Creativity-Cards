@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyButton : MonoBehaviour
+public class QTButtonEvents : MonoBehaviour
 {
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("clash");
         Destroy(gameObject);

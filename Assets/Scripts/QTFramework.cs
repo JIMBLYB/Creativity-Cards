@@ -39,7 +39,7 @@ public class QTFramework : MonoBehaviour
     public GameObject buttonPrefab;
     private RectTransform QTArea;
     private bool firstRun = true;
-    private GameObject[] QTButtons;
+    private List<GameObject> QTButtons = new List<GameObject>();
 
     void Start() 
     {
@@ -52,8 +52,6 @@ public class QTFramework : MonoBehaviour
         if (sequence != null)
             {
                 firstRun = false;
-                //Initialises an array to store all of the generated buttons for the quick time events
-                QTButtons = new GameObject[sequence.Count];
 
                 // Sets y and z positions of the buttons as they will remain constant
                 Vector3 buttonPos = new Vector3();
@@ -71,7 +69,7 @@ public class QTFramework : MonoBehaviour
                     buttonPos.x = QTArea.position.x + buttonOffset * (i +  1) + buttonWidth * i; 
                     // Instances a button at the new position as a child of the QTArea transform
                     // 'as GameObject' means button is instanced as a GameObject rather than an Object
-                    QTButtons[i] = Instantiate(buttonPrefab, buttonPos, new Quaternion(), transform) as GameObject;
+                    QTButtons.Add(Instantiate(buttonPrefab, buttonPos, new Quaternion(), transform) as GameObject);
 
                     // Gets the text component of the button and sets it to the buttons keycode
                     TextMeshProUGUI buttonText = QTButtons[i].transform.GetComponentInChildren<TextMeshProUGUI>();
@@ -88,8 +86,14 @@ public class QTFramework : MonoBehaviour
             GenerateButtons();
         }
 
+        // Checks if the first button has been deleted, then removes it from the list
+        if (QTButtons[0] == null)
+        {
+            QTButtons.RemoveAt(0);
+        }
+        
         // Moves the buttons to the left at a speed defined by keySpeed
-        for (int i = 0; i < QTButtons.Length; i++)
+        for (int i = 0; i < QTButtons.Count; i++)
         {
             QTButtons[i].transform.position -= new Vector3(keySpeed * Time.deltaTime, 0, 0);
         }
