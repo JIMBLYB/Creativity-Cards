@@ -87,11 +87,14 @@ public class QTFramework : MonoBehaviour
         }
 
         // Checks if the first button has been deleted, then removes it from the list
-        if (QTButtons[0] == null)
+        for (int i = 0; i < QTButtons.Count; i++)
         {
-            QTButtons.RemoveAt(0);
+            if (QTButtons[i] == null)
+            {
+                QTButtons.RemoveAt(i);
+            }
         }
-
+        
         // Destroys QTArea once quick time eent is finsihed.
         // This is placeholder.
         if (QTButtons.Count == 0)

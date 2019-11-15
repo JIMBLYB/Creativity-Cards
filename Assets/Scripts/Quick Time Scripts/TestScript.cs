@@ -11,9 +11,9 @@ public class TestScript : MonoBehaviour
     {
         GameObject QTArea = Instantiate(areaPrefab, transform.parent) as GameObject;
         List<KeyCode> sequence = new List<KeyCode>();
-        sequence.Add((KeyCode)1);
-        sequence.Add((KeyCode)2);
-        sequence.Add((KeyCode)3);
+        sequence.Add(KeyCode.A);
+        sequence.Add(KeyCode.B);
+        sequence.Add(KeyCode.C);
 
         QTFramework QTFramework = QTArea.GetComponent<QTFramework>();
         QTFramework.sequence = sequence;
