@@ -91,7 +91,14 @@ public class QTFramework : MonoBehaviour
         {
             QTButtons.RemoveAt(0);
         }
-        
+
+        // Destroys QTArea once quick time eent is finsihed.
+        // This is placeholder.
+        if (QTButtons.Count == 0)
+        {
+            Destroy(gameObject);
+        }
+
         // Moves the buttons to the left at a speed defined by keySpeed
         for (int i = 0; i < QTButtons.Count; i++)
         {
