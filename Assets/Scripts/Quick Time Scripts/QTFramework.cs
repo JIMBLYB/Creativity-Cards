@@ -86,7 +86,17 @@ public class QTFramework : MonoBehaviour
             GenerateButtons();
         }
 
-        // Checks if the first button has been deleted, then removes it from the list
+        // void OnTriggerStay2D(Collider2D other)
+        // {
+        //     KeyCode buttonKeyCode = (KeyCode)Enum.Parse(typeof(KeyCode), transform.GetComponentInChildren<TextMeshProUGUI>().text.ToString());
+
+        //     if (Input.GetKeyDown(buttonKeyCode))
+        //     {
+        //         Destroy(other.gameObject);
+        //     }
+        // }
+
+        // Checks if any buttons have been deleted, then removes it from the list
         for (int i = 0; i < QTButtons.Count; i++)
         {
             if (QTButtons[i] == null)
@@ -95,7 +105,7 @@ public class QTFramework : MonoBehaviour
             }
         }
         
-        // Destroys QTArea once quick time eent is finsihed.
+        // Destroys QTArea once quick time event is finsihed.
         // This is placeholder.
         if (QTButtons.Count == 0)
         {
