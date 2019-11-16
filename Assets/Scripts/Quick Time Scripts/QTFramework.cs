@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 using TMPro;
@@ -54,7 +53,7 @@ public class QTFramework : MonoBehaviour
     void Start() 
     {
         // Gets the area the quick time event is happening in and uses it for refrence when placing the buttons. 
-        QTArea = gameObject.GetComponent<RectTransform>();
+        QTArea = transform.parent.GetComponent<RectTransform>();
 
         // Generates quick time buttons
         GenerateButtons();

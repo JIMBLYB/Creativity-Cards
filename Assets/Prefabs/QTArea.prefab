@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3648619929535340881}
   - component: {fileID: 5397674412316020686}
   - component: {fileID: 8398352018827969117}
+  - component: {fileID: 7712255108457645255}
   m_Layer: 5
   m_Name: ButtonActionArea
   m_TagString: Untagged
@@ -100,7 +101,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 255.09016, y: 82.40898}
   m_EdgeRadius: 0
 --- !u!50 &8398352018827969117
 Rigidbody2D:
@@ -123,6 +124,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7712255108457645255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305636405148666058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d431f806be6fc4fa31c36950a64a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequence: 
+  buttonOffset: 20
+  keySpeed: 100
+  buttonPrefab: {fileID: 5465145281432632548, guid: 732dcc289f0327845add1538e7eb4f72,
+    type: 3}
 --- !u!1 &3561246468755596057
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +152,6 @@ GameObject:
   - component: {fileID: 3561246468755596062}
   - component: {fileID: 3561246468755596060}
   - component: {fileID: 3561246468755596063}
-  - component: {fileID: 2222900487702931980}
   m_Layer: 5
   m_Name: QTArea
   m_TagString: Untagged
@@ -199,20 +216,3 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2222900487702931980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3561246468755596057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d431f806be6fc4fa31c36950a64a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sequence: 
-  buttonOffset: 20
-  keySpeed: 100
-  buttonPrefab: {fileID: 5465145281432632548, guid: 732dcc289f0327845add1538e7eb4f72,
-    type: 3}

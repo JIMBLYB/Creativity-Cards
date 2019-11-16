@@ -15,7 +15,7 @@ public class TestScript : MonoBehaviour
         sequence.Add(KeyCode.B);
         sequence.Add(KeyCode.C);
 
-        QTFramework QTFramework = QTArea.GetComponent<QTFramework>();
+        QTFramework QTFramework = QTArea.GetComponentInChildren<QTFramework>();
         QTFramework.sequence = sequence;
     }
 
