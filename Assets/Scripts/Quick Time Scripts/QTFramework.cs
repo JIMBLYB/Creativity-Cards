@@ -107,4 +107,9 @@ public class QTFramework : MonoBehaviour
     {
         buttonEnteredArea.Add(true);
     }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Destroy(other.gameObject);
+    }
 }
