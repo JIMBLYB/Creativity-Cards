@@ -51,6 +51,7 @@ public class QTFramework : MonoBehaviour
         }
     }
 
+    // Used when buttons are destroyed to prevent left over refrences causing problems
     private void RemoveListItems(int i)
     {
         QTButtons.RemoveAt(i);
@@ -103,11 +104,13 @@ public class QTFramework : MonoBehaviour
 
     }
 
+    // Keeps track of whether a button has entered ButtonActionArea
     void OnTriggerEnter2D(Collider2D other)
     {
         buttonEnteredArea.Add(true);
     }
 
+    // Deletes the buttons when they leave ButtonActionArea
     void OnTriggerExit2D(Collider2D other)
     {
         Destroy(other.gameObject);
