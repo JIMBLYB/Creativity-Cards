@@ -10,7 +10,7 @@ public class AnimalClass : MonoBehaviour
     // Variables for use during battle
     public int level;
     public int damage;
-    public float levelUpIncrease;
+    private int levelUpIncrease;
     public float hitChance;
     public float cooldownDuration;
 
@@ -18,7 +18,7 @@ public class AnimalClass : MonoBehaviour
     public bool unlocked;
     public int buyPrice;
     public int currentPrice;
-    public float increaseMult;
+    private float priceMultiplier;
 
     public void Pricing()
     {
@@ -28,7 +28,7 @@ public class AnimalClass : MonoBehaviour
         }
         else
         {
-            currentPrice = Mathf.CeilToInt(currentPrice * increaseMult);
+            currentPrice = Mathf.FloorToInt(currentPrice * priceMultiplier);
         }
     }
 
@@ -49,5 +49,12 @@ public class AnimalClass : MonoBehaviour
                 damage = Mathf.FloorToInt(damage * levelUpIncrease);
             }
         }
+    }
+
+    public void Upgrade()
+    {
+        level++;
+        Pricing();
+        damage += levelUpIncrease;
     }
 }
