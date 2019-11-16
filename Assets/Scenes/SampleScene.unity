@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 866389866}
   - component: {fileID: 866389868}
   - component: {fileID: 866389867}
+  - component: {fileID: 866389869}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -408,6 +409,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866389865}
   m_CullTransparentMesh: 0
+--- !u!114 &866389869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866389865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a46f9a5f1e5f74d9cac239528791d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack_name: 
+  cooldown: 0
+  ID: 0
+  damage: 0
+  accuracy: 0
+  attackSequence: 
+  QTAreaPrefab: {fileID: 0}
 --- !u!1 &1221322026
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,10 +523,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1447250407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6417547dc204cf4488fa058e4daa4645, type: 3}
+  m_Script: {fileID: 11500000, guid: 94a46f9a5f1e5f74d9cac239528791d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaPrefab: {fileID: 3561246468755596057, guid: b0a7f54e99603044f8f8ef1232db8872,
+  attack_name: 
+  cooldown: 0
+  ID: 0
+  damage: 0
+  accuracy: 0
+  attackSequence: 
+  QTAreaPrefab: {fileID: 3561246468755596057, guid: b0a7f54e99603044f8f8ef1232db8872,
     type: 3}
 --- !u!114 &1447250410
 MonoBehaviour:
@@ -547,7 +573,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1447250411}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1447250409}
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1447250411
