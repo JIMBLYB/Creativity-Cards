@@ -21,7 +21,7 @@ public class MenuButtons : MonoBehaviour {
     public void PressHelpButton()
     {
         Debug.Log("Help button pressed.");
-        // Add tutorial scene here using //SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);
 
     }
 
