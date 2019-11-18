@@ -8,7 +8,7 @@ James Berry\
 Alex Williamson
 
 ### Artists
-Lewis Reynolds
+Lewis Reynolds\
 Owain Hall
 
 ### Animation
