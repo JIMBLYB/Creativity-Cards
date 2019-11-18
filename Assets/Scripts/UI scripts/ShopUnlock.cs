@@ -17,6 +17,7 @@ public class ShopUnlock : MonoBehaviour
     public GameObject NEGText;
     public GameController moneyStorage;
     public GameController LvlStorage;
+    public GameController lockedStatus;
     public int sheepUnlockCost, cowUnlockCost, chickenUnlockCost, chickUnlockCost, sample1UnlockCost, sample2UnlockCost;
 
     void Start()
@@ -91,6 +92,8 @@ public class ShopUnlock : MonoBehaviour
         {
             unlockScreen1.SetActive(false);
             unlockScreenButton1.SetActive(false);
+            lockedStatus.sheepLock = false;
+            Debug.Log("unlocked");
             moneyStorage.money = moneyStorage.money - sheepUnlockCost;
         }
         else
@@ -104,6 +107,7 @@ public class ShopUnlock : MonoBehaviour
         {
             unlockScreen2.SetActive(false);
             unlockScreenButton2.SetActive(false);
+            lockedStatus.cowLock = false;
             moneyStorage.money = moneyStorage.money - cowUnlockCost;
         }
         else
@@ -117,6 +121,7 @@ public class ShopUnlock : MonoBehaviour
         {
             unlockScreen3.SetActive(false);
             unlockScreenButton3.SetActive(false);
+            lockedStatus.chickenLock = false;
             moneyStorage.money = moneyStorage.money - chickenUnlockCost;
         }
         else
@@ -130,6 +135,7 @@ public class ShopUnlock : MonoBehaviour
         {
             unlockScreen4.SetActive(false);
             unlockScreenButton4.SetActive(false);
+            lockedStatus.chickLock = false;
             moneyStorage.money = moneyStorage.money - chickUnlockCost;
         }
         else
@@ -143,6 +149,7 @@ public class ShopUnlock : MonoBehaviour
         {
             unlockScreen5.SetActive(false);
             unlockScreenButton5.SetActive(false);
+            lockedStatus.sample1Lock = false;
             moneyStorage.money = moneyStorage.money - sample1UnlockCost;
         }
         else
@@ -156,6 +163,7 @@ public class ShopUnlock : MonoBehaviour
         {
             unlockScreen6.SetActive(false);
             unlockScreenButton6.SetActive(false);
+            lockedStatus.sample2Lock = false;
             moneyStorage.money = moneyStorage.money - sample2UnlockCost;
         }
         else

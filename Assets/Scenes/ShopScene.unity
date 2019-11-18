@@ -3732,6 +3732,7 @@ MonoBehaviour:
   NEGText: {fileID: 1302069283}
   moneyStorage: {fileID: 1797384608}
   LvlStorage: {fileID: 1797384608}
+  lockedStatus: {fileID: 1797384608}
   sheepUnlockCost: 0
   cowUnlockCost: 0
   chickenUnlockCost: 0
@@ -6879,6 +6880,12 @@ MonoBehaviour:
   chickLvl: 0
   sample1Lvl: 0
   sample2Lvl: 0
+  sheepLock: 0
+  cowLock: 0
+  chickenLock: 0
+  chickLock: 0
+  sample1Lock: 0
+  sample2Lock: 0
 --- !u!4 &1797384609
 Transform:
   m_ObjectHideFlags: 0

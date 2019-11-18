@@ -39,10 +39,4 @@ public class MenuButtons : MonoBehaviour {
         SceneManager.LoadScene(3);
 
     }
-    //Battlescene from TeamSelect
-    public void PressBattleButton()
-    {
-        SceneManager.LoadScene(4);
-
-    }
 }
