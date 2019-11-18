@@ -5,7 +5,8 @@
 ### Programmers
 Harry Donovan\
 James Berry\
-Alex Williamson
+Alex Williamson\
+Oskar Korpysa
 
 ### Artists
 Lewis Reynolds\
