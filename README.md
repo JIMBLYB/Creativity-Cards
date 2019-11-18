@@ -9,6 +9,7 @@ Alex Williamson
 
 ### Artists
 Lewis Reynolds
+Owain Hall
 
 ### Animation
 Adam Lambert
