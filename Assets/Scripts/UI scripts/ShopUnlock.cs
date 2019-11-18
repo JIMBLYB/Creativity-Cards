@@ -10,9 +10,15 @@ public class ShopUnlock : MonoBehaviour
     public Button unlockButton1, unlockButton2, unlockButton3, unlockButton4, unlockButton5, unlockButton6;
     public GameObject unlockScreen1, unlockScreen2, unlockScreen3, unlockScreen4, unlockScreen5, unlockScreen6;
     public GameObject unlockScreenButton1, unlockScreenButton2, unlockScreenButton3, unlockScreenButton4, unlockScreenButton5, unlockScreenButton6;
+    public GameObject moneyAmount;
+    public GameObject NEGText;
+    public GameController moneyStorage;
 
     void Start()
     {
+        //Sets the Not Enough Gold text to false;
+        NEGText.SetActive(false);
+
         //ensures unlock UI is active
         unlockScreen1.SetActive(true);
         unlockScreen2.SetActive(true);
@@ -41,45 +47,110 @@ public class ShopUnlock : MonoBehaviour
         unbtn5.onClick.AddListener(unlockButton5Clicked);
         unbtn6.onClick.AddListener(unlockButton6Clicked);
     }
+    private void Update()
+    {
+        //calls void which displays money
+        showMoney();
+    }
 
+    //Tests to see if player has enough money: If they do the locking overlay is displayed for that animal.
     void unlockButton1Clicked()
     {
-        unlockScreen1.SetActive(false);
-        unlockScreenButton1.SetActive(false);
-
+        if (moneyStorage.money >= 150)
+        {
+            unlockScreen1.SetActive(false);
+            unlockScreenButton1.SetActive(false);
+            moneyStorage.money = moneyStorage.money - 150;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
-
     void unlockButton2Clicked()
     {
-        unlockScreen2.SetActive(false);
-        unlockScreenButton2.SetActive(false);
-
+        if (moneyStorage.money >= 250)
+        {
+            unlockScreen2.SetActive(false);
+            unlockScreenButton2.SetActive(false);
+            moneyStorage.money = moneyStorage.money - 250;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
-
     void unlockButton3Clicked()
     {
-        unlockScreen3.SetActive(false);
-        unlockScreenButton3.SetActive(false);
-
+        if (moneyStorage.money >= 400)
+        {
+            unlockScreen3.SetActive(false);
+            unlockScreenButton3.SetActive(false);
+            moneyStorage.money = moneyStorage.money - 400;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
-
     void unlockButton4Clicked()
     {
-        unlockScreen4.SetActive(false);
-        unlockScreenButton4.SetActive(false);
-
+        if (moneyStorage.money >= 600)
+        {
+            unlockScreen4.SetActive(false);
+            unlockScreenButton4.SetActive(false);
+            moneyStorage.money = moneyStorage.money - 600;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
-
     void unlockButton5Clicked()
     {
-        unlockScreen5.SetActive(false);
-        unlockScreenButton5.SetActive(false);
-
+        if (moneyStorage.money >= 800)
+        {
+            unlockScreen5.SetActive(false);
+            unlockScreenButton5.SetActive(false);
+            moneyStorage.money = moneyStorage.money - 800;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
     void unlockButton6Clicked()
     {
-        unlockScreen6.SetActive(false);
-        unlockScreenButton6.SetActive(false);
+        if (moneyStorage.money >= 950)
+        {
+            unlockScreen6.SetActive(false);
+            unlockScreenButton6.SetActive(false);
+            moneyStorage.money = moneyStorage.money - 950;
+        }
+        else
+        {
+            notEnoughGold();
+        }
+    }
 
+    //not enough gold, for when player doesnt have enough gold
+    public void notEnoughGold()
+    {
+        NEGText.SetActive(true);
+        //activates timer
+        StartCoroutine(timerNEGText());
+    }
+
+    //displays money int from the GameController script
+    public void showMoney()
+    {
+        moneyAmount.GetComponent<Text>().text = moneyStorage.money.ToString();
+    }
+
+    IEnumerator timerNEGText()
+    {
+        yield return new WaitForSeconds(0.5f);
+        //when timer finishes disables text
+        NEGText.SetActive(false);
     }
 }
