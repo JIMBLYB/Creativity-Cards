@@ -14,10 +14,13 @@ public class ShopUnlock : MonoBehaviour
     public GameObject moneyAmount;
     public GameObject sheepLevel, cowLevel, chickenLevel, chickLevel, pigLevel, gooseLevel;
     public GameObject sheepUnlock, cowUnlock, chickenUnlock, chickUnlock, pigUnlock, gooseUnlock;
+    public GameObject sheepUpgrade, cowUpgrade, chickenUpgrade, chickUpgrade, pigUpgrade, gooseUpgrade;
     public GameObject NEGText;
     public GameController moneyStorage;
     public GameController LvlStorage;
     public GameController lockedStatus;
+    float updatePriceSheep1, updatePriceSheep2, updatePriceCow1, updatePriceCow2, updatePriceChicken1, updatePriceChicken2, updatePriceChick1, updatePriceChick2, updatePricePig1, updatePricePig2, updatePriceGoose1, updatePriceGoose2;
+    float sheepUpgradeCost, cowUpgradeCost, chickenUpgradeCost, chickUpgradeCost, pigUpgradeCost, gooseUpgradeCost;
     public int sheepUnlockCost, cowUnlockCost, chickenUnlockCost, chickUnlockCost, pigUnlockCost, gooseUnlockCost;
 
     void Start()
@@ -69,10 +72,33 @@ public class ShopUnlock : MonoBehaviour
     }
     private void Update()
     {
-        //calls void which displays money
+        //calls void which displays money, level of animals, price of unlock, price of upgrades
         showMoney();
         displayLevel();
         displayUnlockPrice();
+        displayUpgradePrice();
+
+        //Calculating the cost of base upgrades
+
+        updatePriceSheep1 = 6 * LvlStorage.sheepLvl;
+        updatePriceSheep2 = Mathf.Pow(updatePriceSheep1, 1.5f);
+        updatePriceCow1 = 6 * LvlStorage.cowLvl;
+        updatePriceCow2 = Mathf.Pow(updatePriceCow1, 1.5f);
+        updatePriceChicken1 = 6 * LvlStorage.chickenLvl;
+        updatePriceChicken2 = Mathf.Pow(updatePriceChicken1, 1.5f);
+        updatePriceChick1 = 6 * LvlStorage.chickLvl;
+        updatePriceChick2 = Mathf.Pow(updatePriceChick1, 1.5f);
+        updatePricePig1 = 6 * LvlStorage.pigLvl;
+        updatePricePig2 = Mathf.Pow(updatePricePig1, 1.5f);
+        updatePriceGoose1 = 6 * LvlStorage.gooseLvl;
+        updatePriceGoose2 = Mathf.Pow(updatePriceGoose1, 1.5f);
+
+        sheepUpgradeCost = Mathf.Round(updatePriceSheep2);
+        cowUpgradeCost = Mathf.Round(updatePriceCow2);
+        chickenUpgradeCost = Mathf.Round(updatePriceChicken2);
+        chickUpgradeCost = Mathf.Round(updatePriceChick2);
+        pigUpgradeCost = Mathf.Round(updatePricePig2);
+        gooseUpgradeCost = Mathf.Round(updatePriceGoose2);
 
         if (lockedStatus.sheepLock == false)
         {
@@ -104,7 +130,6 @@ public class ShopUnlock : MonoBehaviour
             unlockScreen6.SetActive(false);
             unlockScreenButton6.SetActive(false);
         }
-
     }
 
     //Tests to see if player has enough money: If they do the locking overlay is displayed for that animal.
@@ -184,27 +209,75 @@ public class ShopUnlock : MonoBehaviour
     //Upgrade buttons
     void upgradebutton1Clicked()
     {
-        LvlStorage.sheepLvl = LvlStorage.sheepLvl + 1;
+        if (moneyStorage.money >= sheepUpgradeCost)
+        {
+            LvlStorage.sheepLvl = LvlStorage.sheepLvl + 1;
+            moneyStorage.money = moneyStorage.money - sheepUpgradeCost;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
     void upgradebutton2Clicked()
     {
-        LvlStorage.cowLvl = LvlStorage.cowLvl + 1;
+        if (moneyStorage.money >= cowUpgradeCost)
+        {
+            LvlStorage.cowLvl = LvlStorage.cowLvl + 1;
+            moneyStorage.money = moneyStorage.money - cowUpgradeCost;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
     void upgradebutton3Clicked()
     {
-        LvlStorage.chickenLvl = LvlStorage.chickenLvl + 1;
+        if (moneyStorage.money >= chickenUpgradeCost)
+        {
+            LvlStorage.chickenLvl = LvlStorage.chickenLvl + 1;
+            moneyStorage.money = moneyStorage.money - chickenUpgradeCost;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
     void upgradebutton4Clicked()
     {
-        LvlStorage.chickLvl = LvlStorage.chickLvl + 1;
+        if (moneyStorage.money >= chickUpgradeCost)
+        {
+            LvlStorage.chickLvl = LvlStorage.chickLvl + 1;
+            moneyStorage.money = moneyStorage.money - chickUpgradeCost;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
     void upgradebutton5Clicked()
     {
-        LvlStorage.pigLvl = LvlStorage.pigLvl + 1;
+        if (moneyStorage.money >= pigUpgradeCost)
+        {
+            LvlStorage.pigLvl = LvlStorage.pigLvl + 1;
+            moneyStorage.money = moneyStorage.money - pigUpgradeCost;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
     void upgradebutton6Clicked()
     {
-        LvlStorage.gooseLvl = LvlStorage.gooseLvl + 1;
+        if (moneyStorage.money >= gooseUpgradeCost)
+        {
+            LvlStorage.gooseLvl = LvlStorage.gooseLvl + 1;
+            moneyStorage.money = moneyStorage.money - gooseUpgradeCost;
+        }
+        else
+        {
+            notEnoughGold();
+        }
     }
 
     //not enough gold, for when player doesnt have enough gold
@@ -231,7 +304,6 @@ public class ShopUnlock : MonoBehaviour
         pigLevel.GetComponent<Text>().text = "lvl - " + LvlStorage.pigLvl.ToString();
         gooseLevel.GetComponent<Text>().text = "lvl - " + LvlStorage.gooseLvl.ToString();
     }
-
     public void displayUnlockPrice()
     {
         sheepUnlock.GetComponent<Text>().text = "Unlock - " + sheepUnlockCost.ToString();
@@ -240,6 +312,15 @@ public class ShopUnlock : MonoBehaviour
         chickUnlock.GetComponent<Text>().text = "Unlock - " + chickUnlockCost.ToString();
         pigUnlock.GetComponent<Text>().text = "Unlock - " + pigUnlockCost.ToString();
         gooseUnlock.GetComponent<Text>().text = "Unlock - " + gooseUnlockCost.ToString();
+    }
+    public void displayUpgradePrice()
+    {
+        sheepUpgrade.GetComponent<Text>().text = "Upgrade - " + sheepUpgradeCost.ToString();
+        cowUpgrade.GetComponent<Text>().text = "Upgrade - " + cowUpgradeCost.ToString();
+        chickenUpgrade.GetComponent<Text>().text = "Upgrade - " + chickenUpgradeCost.ToString();
+        chickUpgrade.GetComponent<Text>().text = "Upgrade - " + chickUpgradeCost.ToString();
+        pigUpgrade.GetComponent<Text>().text = "Upgrade - " + pigUpgradeCost.ToString();
+        gooseUpgrade.GetComponent<Text>().text = "Upgrade - " + gooseUpgradeCost.ToString();
     }
 
     //NEG timer

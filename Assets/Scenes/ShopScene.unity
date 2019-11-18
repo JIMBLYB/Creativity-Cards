@@ -564,6 +564,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 59757136}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &59757138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8266598713161783368, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 59757136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &64628289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +2496,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 564239526}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &564239528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8266598713161783368, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 564239526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &575074829
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,6 +3185,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 828550254}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &828550256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8266598713161783368, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 828550254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &836241397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,6 +3819,12 @@ MonoBehaviour:
   chickUnlock: {fileID: 797873189}
   pigUnlock: {fileID: 321603527}
   gooseUnlock: {fileID: 1194960046}
+  sheepUpgrade: {fileID: 1248760138}
+  cowUpgrade: {fileID: 59757138}
+  chickenUpgrade: {fileID: 1326571974}
+  chickUpgrade: {fileID: 828550256}
+  pigUpgrade: {fileID: 1586140437}
+  gooseUpgrade: {fileID: 564239528}
   NEGText: {fileID: 1302069283}
   moneyStorage: {fileID: 0}
   LvlStorage: {fileID: 0}
@@ -4728,6 +4752,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1248760136}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1248760138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8266598713161783368, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1248760136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1260085239
 GameObject:
   m_ObjectHideFlags: 0
@@ -5225,6 +5255,12 @@ PrefabInstance:
 --- !u!224 &1326571973 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8266598714285318218, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326571972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1326571974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8266598713161783368, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
     type: 3}
   m_PrefabInstance: {fileID: 1326571972}
   m_PrefabAsset: {fileID: 0}
@@ -6202,6 +6238,12 @@ PrefabInstance:
 --- !u!224 &1586140436 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8266598714285318218, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1586140435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1586140437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8266598713161783368, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
     type: 3}
   m_PrefabInstance: {fileID: 1586140435}
   m_PrefabAsset: {fileID: 0}

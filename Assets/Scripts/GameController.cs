@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public int money;
+    public float money;
 
     [SerializeField]
     public int maxHealth;
@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
         health = maxHealth;
 
         //Resets money
-        money = 500;
+        money = 250;
 
         //Sets animal starting level
         sheepLvl = 1;
