@@ -12,13 +12,13 @@ public class ShopUnlock : MonoBehaviour
     public GameObject unlockScreenButton1, unlockScreenButton2, unlockScreenButton3, unlockScreenButton4, unlockScreenButton5, unlockScreenButton6;
     public GameObject upgradeButton1, upgradeButton2, upgradeButton3, upgradeButton4, upgradeButton5, upgradeButton6;
     public GameObject moneyAmount;
-    public GameObject sheepLevel, cowLevel, chickenLevel, chickLevel, sample1Level, sample2Level;
-    public GameObject sheepUnlock, cowUnlock, chickenUnlock, chickUnlock, sample1Unlock, sample2Unlock;
+    public GameObject sheepLevel, cowLevel, chickenLevel, chickLevel, pigLevel, gooseLevel;
+    public GameObject sheepUnlock, cowUnlock, chickenUnlock, chickUnlock, pigUnlock, gooseUnlock;
     public GameObject NEGText;
     public GameController moneyStorage;
     public GameController LvlStorage;
     public GameController lockedStatus;
-    public int sheepUnlockCost, cowUnlockCost, chickenUnlockCost, chickUnlockCost, sample1UnlockCost, sample2UnlockCost;
+    public int sheepUnlockCost, cowUnlockCost, chickenUnlockCost, chickUnlockCost, pigUnlockCost, gooseUnlockCost;
 
     void Start()
     {
@@ -31,8 +31,8 @@ public class ShopUnlock : MonoBehaviour
         cowUnlockCost = 300;
         chickenUnlockCost = 400;
         chickUnlockCost = 600;
-        sample1UnlockCost = 800;
-        sample2UnlockCost = 950;
+        pigUnlockCost = 800;
+        gooseUnlockCost = 950;
 
         //Sets the Not Enough Gold text to false;
         NEGText.SetActive(false);
@@ -94,12 +94,12 @@ public class ShopUnlock : MonoBehaviour
             unlockScreen4.SetActive(false);
             unlockScreenButton4.SetActive(false);
         }
-        if (lockedStatus.sample1Lock == false)
+        if (lockedStatus.pigLock == false)
         {
             unlockScreen5.SetActive(false);
             unlockScreenButton5.SetActive(false);
         }
-        if (lockedStatus.sample2Lock == false)
+        if (lockedStatus.gooseLock == false)
         {
             unlockScreen6.SetActive(false);
             unlockScreenButton6.SetActive(false);
@@ -158,10 +158,10 @@ public class ShopUnlock : MonoBehaviour
     }
     void unlockButton5Clicked()
     {
-        if (moneyStorage.money >= sample1UnlockCost)
+        if (moneyStorage.money >= pigUnlockCost)
         {
-            lockedStatus.sample1Lock = false;
-            moneyStorage.money = moneyStorage.money - sample1UnlockCost;
+            lockedStatus.pigLock = false;
+            moneyStorage.money = moneyStorage.money - pigUnlockCost;
         }
         else
         {
@@ -170,10 +170,10 @@ public class ShopUnlock : MonoBehaviour
     }
     void unlockButton6Clicked()
     {
-        if (moneyStorage.money >= sample2UnlockCost)
+        if (moneyStorage.money >= gooseUnlockCost)
         {
-            lockedStatus.sample2Lock = false;
-            moneyStorage.money = moneyStorage.money - sample2UnlockCost;
+            lockedStatus.gooseLock = false;
+            moneyStorage.money = moneyStorage.money - gooseUnlockCost;
         }
         else
         {
@@ -200,11 +200,11 @@ public class ShopUnlock : MonoBehaviour
     }
     void upgradebutton5Clicked()
     {
-        LvlStorage.sample1Lvl = LvlStorage.sample1Lvl + 1;
+        LvlStorage.pigLvl = LvlStorage.pigLvl + 1;
     }
     void upgradebutton6Clicked()
     {
-        LvlStorage.sample2Lvl = LvlStorage.sample2Lvl + 1;
+        LvlStorage.gooseLvl = LvlStorage.gooseLvl + 1;
     }
 
     //not enough gold, for when player doesnt have enough gold
@@ -228,8 +228,8 @@ public class ShopUnlock : MonoBehaviour
         cowLevel.GetComponent<Text>().text = "lvl - " + LvlStorage.cowLvl.ToString();
         chickenLevel.GetComponent<Text>().text = "lvl - " + LvlStorage.chickenLvl.ToString();
         chickLevel.GetComponent<Text>().text = "lvl - " + LvlStorage.chickLvl.ToString();
-        sample1Level.GetComponent<Text>().text = "lvl - " + LvlStorage.sample1Lvl.ToString();
-        sample2Level.GetComponent<Text>().text = "lvl - " + LvlStorage.sample2Lvl.ToString();
+        pigLevel.GetComponent<Text>().text = "lvl - " + LvlStorage.pigLvl.ToString();
+        gooseLevel.GetComponent<Text>().text = "lvl - " + LvlStorage.gooseLvl.ToString();
     }
 
     public void displayUnlockPrice()
@@ -238,8 +238,8 @@ public class ShopUnlock : MonoBehaviour
         cowUnlock.GetComponent<Text>().text = "Unlock - " + cowUnlockCost.ToString();
         chickenUnlock.GetComponent<Text>().text = "Unlock - " + chickenUnlockCost.ToString();
         chickUnlock.GetComponent<Text>().text = "Unlock - " + chickUnlockCost.ToString();
-        sample1Unlock.GetComponent<Text>().text = "Unlock - " + sample1UnlockCost.ToString();
-        sample2Unlock.GetComponent<Text>().text = "Unlock - " + sample2UnlockCost.ToString();
+        pigUnlock.GetComponent<Text>().text = "Unlock - " + pigUnlockCost.ToString();
+        gooseUnlock.GetComponent<Text>().text = "Unlock - " + gooseUnlockCost.ToString();
     }
 
     //NEG timer

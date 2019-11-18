@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UnlockManagerTeamScene : MonoBehaviour
 {
     public GameController unlockedAnimals;
-    public GameObject sheepLockOverlay, cowLockOverlay, chickenLockOverlay, chickLockOverlay, sample1LockOverlay, sample2LockOverlay;
+    public GameObject sheepLockOverlay, cowLockOverlay, chickenLockOverlay, chickLockOverlay, pigLockOverlay, gooseLockOverlay;
 
     private void Start()
     {
@@ -48,22 +48,22 @@ public class UnlockManagerTeamScene : MonoBehaviour
             chickLockOverlay.SetActive(true);
         }
 
-        if (unlockedAnimals.sample1Lock == false)
+        if (unlockedAnimals.pigLock == false)
         {
-            sample1LockOverlay.SetActive(false);
+            pigLockOverlay.SetActive(false);
         }
         else
         {
-            sample1LockOverlay.SetActive(true);
+            pigLockOverlay.SetActive(true);
         }
 
-        if (unlockedAnimals.sample2Lock == false)
+        if (unlockedAnimals.gooseLock == false)
         {
-            sample2LockOverlay.SetActive(false);
+            gooseLockOverlay.SetActive(false);
         }
         else
         {
-            sample2LockOverlay.SetActive(true);
+            gooseLockOverlay.SetActive(true);
         }
     }
 }

@@ -999,8 +999,8 @@ MonoBehaviour:
   cowLockOverlay: {fileID: 5909841771043936712}
   chickenLockOverlay: {fileID: 4723772337099036373}
   chickLockOverlay: {fileID: 6166326156837944574}
-  sample1LockOverlay: {fileID: 6474384032536284284}
-  sample2LockOverlay: {fileID: 2117625852858668066}
+  pigLockOverlay: {fileID: 6474384032536284284}
+  gooseLockOverlay: {fileID: 2117625852858668066}
 --- !u!114 &863797272 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8266598714285318221, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
@@ -4039,7 +4039,7 @@ GameObject:
   - component: {fileID: 2117625852858668069}
   - component: {fileID: 2117625852858668068}
   m_Layer: 5
-  m_Name: Button_sample2Locked
+  m_Name: Button_gooseLocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4645,7 +4645,7 @@ GameObject:
   - component: {fileID: 6474384032536284283}
   - component: {fileID: 6474384032536284282}
   m_Layer: 5
-  m_Name: Button_sample1Locked
+  m_Name: Button_pigLocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2785,6 +2785,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657061936}
   m_CullTransparentMesh: 0
+--- !u!1 &685828753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685828754}
+  - component: {fileID: 685828756}
+  - component: {fileID: 685828755}
+  m_Layer: 5
+  m_Name: GoosePic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &685828754
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685828753}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1011654119}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.10004171, y: 4.899994}
+  m_SizeDelta: {x: 94.89, y: 94.89}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &685828755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685828753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: dd2fc75ee0afd7341b8425dddcb3b5eb, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &685828756
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685828753}
+  m_CullTransparentMesh: 0
 --- !u!1 &736420434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3225,7 +3297,7 @@ GameObject:
   - component: {fileID: 911163698}
   - component: {fileID: 911163697}
   m_Layer: 5
-  m_Name: SampleLvl2
+  m_Name: GooseLvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3721,14 +3793,14 @@ MonoBehaviour:
   cowLevel: {fileID: 156321391}
   chickenLevel: {fileID: 64628289}
   chickLevel: {fileID: 267817103}
-  sample1Level: {fileID: 1061756272}
-  sample2Level: {fileID: 911163695}
+  pigLevel: {fileID: 1448569120}
+  gooseLevel: {fileID: 1654189150}
   sheepUnlock: {fileID: 1600546826}
   cowUnlock: {fileID: 429791774}
   chickenUnlock: {fileID: 1318486107}
   chickUnlock: {fileID: 797873189}
-  sample1Unlock: {fileID: 321603527}
-  sample2Unlock: {fileID: 1194960046}
+  pigUnlock: {fileID: 321603527}
+  gooseUnlock: {fileID: 1194960046}
   NEGText: {fileID: 1302069283}
   moneyStorage: {fileID: 0}
   LvlStorage: {fileID: 0}
@@ -3737,8 +3809,8 @@ MonoBehaviour:
   cowUnlockCost: 0
   chickenUnlockCost: 0
   chickUnlockCost: 0
-  sample1UnlockCost: 0
-  sample2UnlockCost: 0
+  pigUnlockCost: 0
+  gooseUnlockCost: 0
 --- !u!114 &974862115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4110,7 +4182,7 @@ GameObject:
   - component: {fileID: 1061756275}
   - component: {fileID: 1061756274}
   m_Layer: 5
-  m_Name: SameplLvl1
+  m_Name: PigLvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4843,7 +4915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7999878, y: 8.854996}
+  m_AnchoredPosition: {x: -0.0000050664, y: 5.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296794301
@@ -5393,7 +5465,7 @@ GameObject:
   - component: {fileID: 1448569123}
   - component: {fileID: 1448569122}
   m_Layer: 5
-  m_Name: SampleText1
+  m_Name: PigText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5451,7 +5523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sample 1
+  m_Text: Pig
 --- !u!222 &1448569123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6199,7 +6271,7 @@ GameObject:
   - component: {fileID: 1654189153}
   - component: {fileID: 1654189152}
   m_Layer: 5
-  m_Name: SampleText2
+  m_Name: GooseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6257,9 +6329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sample 2
-
-'
+  m_Text: Goose
 --- !u!222 &1654189153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7837,6 +7907,78 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1454930255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2093799342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2093799343}
+  - component: {fileID: 2093799345}
+  - component: {fileID: 2093799344}
+  m_Layer: 5
+  m_Name: PigPic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2093799343
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093799342}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 261831480}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 5.9}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2093799344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093799342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: 0d98575f6dd5c0a4dba806346c0d0f6e, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &2093799345
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093799342}
+  m_CullTransparentMesh: 0
 --- !u!1001 &2109721754
 PrefabInstance:
   m_ObjectHideFlags: 0

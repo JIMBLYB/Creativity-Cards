@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public int maxHealth;
     public int health;
-    public int sheepLvl, cowLvl, chickenLvl, chickLvl, sample1Lvl, sample2Lvl;
-    public bool sheepLock, cowLock, chickenLock, chickLock, sample1Lock, sample2Lock;
+    public int sheepLvl, cowLvl, chickenLvl, chickLvl, pigLvl, gooseLvl;
+    public bool sheepLock, cowLock, chickenLock, chickLock, pigLock, gooseLock;
 
     // Initialisation of variables
     public void Awake()
@@ -29,16 +29,16 @@ public class GameController : MonoBehaviour
         cowLvl = 1;
         chickenLvl = 1;
         chickLvl = 1;
-        sample1Lvl = 1;
-        sample2Lvl = 1;
+        pigLvl = 1;
+        gooseLvl = 1;
 
         //set animal locked status;
         sheepLock = true;
         cowLock = true;
         chickenLock = true;
         chickLock = true;
-        sample1Lock = true;
-        sample2Lock = true;
+        pigLock = true;
+        gooseLock = true;
 
     }
 }
