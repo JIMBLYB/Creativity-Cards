@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3d98a6a959c214141b066d7965b2e1ff
   - enabled: 1
-    path: Assets/Scenes/BattleScene.unity
-    guid: 7321b216003fddb4db21d76fb1d83470
+    path: Assets/Scenes/ShopScene.unity
+    guid: cba763c6e45529a4883b89f45fd576af
   - enabled: 1
     path: Assets/Scenes/HelpScene.unity
     guid: 3c62faff93fc1394ea04a71f00d53fe2
+  - enabled: 1
+    path: Assets/Scenes/TeamSelect.unity
+    guid: 26210672924a2944b8a30fdbc83ad695
+  - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: 7321b216003fddb4db21d76fb1d83470
   m_configObjects: {}

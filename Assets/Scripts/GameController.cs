@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public int maxHealth;
     public int health;
+    public int sheepLvl, cowLvl, chickenLvl, chickLvl, sample1Lvl, sample2Lvl;
 
     // Initialisation of variables
     public void Awake()
@@ -20,6 +21,14 @@ public class GameController : MonoBehaviour
         health = maxHealth;
 
         //Resets money
-        money = 0;
+        money = 500;
+
+        //Sets animal starting level
+        sheepLvl = 1;
+        cowLvl = 1;
+        chickenLvl = 1;
+        chickLvl = 1;
+        sample1Lvl = 1;
+        sample2Lvl = 1;
     }
 }
