@@ -10,8 +10,6 @@ public class EscButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Esc button pressed");
-
             SceneManager.LoadScene(0);
         }
     }

@@ -994,8 +994,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8d5ce0a188c4c459cec3fc394054fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedAnimals: {fileID: 874963162}
+  unlockedAnimals: {fileID: 0}
   sheepLockOverlay: {fileID: 832803046879330844}
+  cowLockOverlay: {fileID: 5909841771043936712}
+  chickenLockOverlay: {fileID: 4723772337099036373}
+  chickLockOverlay: {fileID: 6166326156837944574}
+  sample1LockOverlay: {fileID: 6474384032536284284}
+  sample2LockOverlay: {fileID: 2117625852858668066}
 --- !u!114 &863797272 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8266598714285318221, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
@@ -1008,64 +1013,6 @@ MonoBehaviour:
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &874963161
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 874963163}
-  - component: {fileID: 874963162}
-  m_Layer: 0
-  m_Name: temp Game Controller
-  m_TagString: GameController
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &874963162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874963161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef2185b052af054cbda05bea2013140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  money: 0
-  maxHealth: 0
-  health: 0
-  sheepLvl: 0
-  cowLvl: 0
-  chickenLvl: 0
-  chickLvl: 0
-  sample1Lvl: 0
-  sample2Lvl: 0
-  sheepLock: 0
-  cowLock: 0
-  chickenLock: 0
-  chickLock: 0
-  sample1Lock: 0
-  sample2Lock: 0
---- !u!4 &874963163
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874963161}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1029.8469, y: 643.59576, z: -17.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &950071137
 PrefabInstance:
   m_ObjectHideFlags: 0

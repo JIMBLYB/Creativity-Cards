@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public int maxHealth;
     public int health;
     public int sheepLvl, cowLvl, chickenLvl, chickLvl, sample1Lvl, sample2Lvl;
+    public bool sheepLock, cowLock, chickenLock, chickLock, sample1Lock, sample2Lock;
 
     // Initialisation of variables
     public void Awake()
@@ -30,5 +31,14 @@ public class GameController : MonoBehaviour
         chickLvl = 1;
         sample1Lvl = 1;
         sample2Lvl = 1;
+
+        //set animal locked status;
+        sheepLock = true;
+        cowLock = true;
+        chickenLock = true;
+        chickLock = true;
+        sample1Lock = true;
+        sample2Lock = true;
+
     }
 }

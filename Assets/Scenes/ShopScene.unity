@@ -3730,9 +3730,9 @@ MonoBehaviour:
   sample1Unlock: {fileID: 321603527}
   sample2Unlock: {fileID: 1194960046}
   NEGText: {fileID: 1302069283}
-  moneyStorage: {fileID: 1797384608}
-  LvlStorage: {fileID: 1797384608}
-  lockedStatus: {fileID: 1797384608}
+  moneyStorage: {fileID: 0}
+  LvlStorage: {fileID: 0}
+  lockedStatus: {fileID: 0}
   sheepUnlockCost: 0
   cowUnlockCost: 0
   chickenUnlockCost: 0
@@ -6842,64 +6842,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 498542454}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1797384607
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1797384609}
-  - component: {fileID: 1797384608}
-  m_Layer: 0
-  m_Name: temp Game Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1797384608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797384607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef2185b052af054cbda05bea2013140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  money: 0
-  maxHealth: 0
-  health: 0
-  sheepLvl: 0
-  cowLvl: 0
-  chickenLvl: 0
-  chickLvl: 0
-  sample1Lvl: 0
-  sample2Lvl: 0
-  sheepLock: 0
-  cowLock: 0
-  chickenLock: 0
-  chickLock: 0
-  sample1Lock: 0
-  sample2Lock: 0
---- !u!4 &1797384609
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797384607}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1029.8469, y: 643.59576, z: -17.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1854164499
 PrefabInstance:
   m_ObjectHideFlags: 0

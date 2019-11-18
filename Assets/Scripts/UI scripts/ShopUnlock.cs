@@ -22,6 +22,10 @@ public class ShopUnlock : MonoBehaviour
 
     void Start()
     {
+        moneyStorage = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        LvlStorage = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        lockedStatus = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+
         //sets the animal unlock cost;
         sheepUnlockCost = 150;
         cowUnlockCost = 300;
@@ -32,20 +36,6 @@ public class ShopUnlock : MonoBehaviour
 
         //Sets the Not Enough Gold text to false;
         NEGText.SetActive(false);
-
-        //ensures unlock UI is active
-        unlockScreen1.SetActive(true);
-        unlockScreen2.SetActive(true);
-        unlockScreen3.SetActive(true);
-        unlockScreen4.SetActive(true);
-        unlockScreen5.SetActive(true);
-        unlockScreen6.SetActive(true);
-        unlockScreenButton1.SetActive(true);
-        unlockScreenButton2.SetActive(true);
-        unlockScreenButton3.SetActive(true);
-        unlockScreenButton4.SetActive(true);
-        unlockScreenButton5.SetActive(true);
-        unlockScreenButton6.SetActive(true);
 
         //setting up the unlock and upgrade buttons
         Button unbtn1 = unlockButton1.GetComponent<Button>();
@@ -83,6 +73,38 @@ public class ShopUnlock : MonoBehaviour
         showMoney();
         displayLevel();
         displayUnlockPrice();
+
+        if (lockedStatus.sheepLock == false)
+        {
+            unlockScreen1.SetActive(false);
+            unlockScreenButton1.SetActive(false);
+        }
+        if(lockedStatus.cowLock == false)
+        {
+            unlockScreen2.SetActive(false);
+            unlockScreenButton2.SetActive(false);
+        }
+        if (lockedStatus.chickenLock == false)
+        {
+            unlockScreen3.SetActive(false);
+            unlockScreenButton3.SetActive(false);
+        }
+        if (lockedStatus.chickLock == false)
+        {
+            unlockScreen4.SetActive(false);
+            unlockScreenButton4.SetActive(false);
+        }
+        if (lockedStatus.sample1Lock == false)
+        {
+            unlockScreen5.SetActive(false);
+            unlockScreenButton5.SetActive(false);
+        }
+        if (lockedStatus.sample2Lock == false)
+        {
+            unlockScreen6.SetActive(false);
+            unlockScreenButton6.SetActive(false);
+        }
+
     }
 
     //Tests to see if player has enough money: If they do the locking overlay is displayed for that animal.
@@ -90,10 +112,7 @@ public class ShopUnlock : MonoBehaviour
     {
         if (moneyStorage.money >= sheepUnlockCost)
         {
-            unlockScreen1.SetActive(false);
-            unlockScreenButton1.SetActive(false);
             lockedStatus.sheepLock = false;
-            Debug.Log("unlocked");
             moneyStorage.money = moneyStorage.money - sheepUnlockCost;
         }
         else
@@ -105,8 +124,6 @@ public class ShopUnlock : MonoBehaviour
     {
         if (moneyStorage.money >= cowUnlockCost)
         {
-            unlockScreen2.SetActive(false);
-            unlockScreenButton2.SetActive(false);
             lockedStatus.cowLock = false;
             moneyStorage.money = moneyStorage.money - cowUnlockCost;
         }
@@ -119,8 +136,6 @@ public class ShopUnlock : MonoBehaviour
     {
         if (moneyStorage.money >= chickenUnlockCost)
         {
-            unlockScreen3.SetActive(false);
-            unlockScreenButton3.SetActive(false);
             lockedStatus.chickenLock = false;
             moneyStorage.money = moneyStorage.money - chickenUnlockCost;
         }
@@ -133,8 +148,6 @@ public class ShopUnlock : MonoBehaviour
     {
         if (moneyStorage.money >= chickUnlockCost)
         {
-            unlockScreen4.SetActive(false);
-            unlockScreenButton4.SetActive(false);
             lockedStatus.chickLock = false;
             moneyStorage.money = moneyStorage.money - chickUnlockCost;
         }
@@ -147,8 +160,6 @@ public class ShopUnlock : MonoBehaviour
     {
         if (moneyStorage.money >= sample1UnlockCost)
         {
-            unlockScreen5.SetActive(false);
-            unlockScreenButton5.SetActive(false);
             lockedStatus.sample1Lock = false;
             moneyStorage.money = moneyStorage.money - sample1UnlockCost;
         }
@@ -161,8 +172,6 @@ public class ShopUnlock : MonoBehaviour
     {
         if (moneyStorage.money >= sample2UnlockCost)
         {
-            unlockScreen6.SetActive(false);
-            unlockScreenButton6.SetActive(false);
             lockedStatus.sample2Lock = false;
             moneyStorage.money = moneyStorage.money - sample2UnlockCost;
         }
