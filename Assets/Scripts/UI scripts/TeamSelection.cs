@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
-using TMPro;
 
 public class TeamSelection : MonoBehaviour
 {
     // Script is designed to sit in 'Canvas - TeamSelect' in the 'TeamSelect' scene
+
+    GameController gameController;
+    // Fetches the GameController for later use
+    void Start()
+    {
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+    }
+    
 
     public void OnAttackClick(Button button)
     {
@@ -16,6 +23,12 @@ public class TeamSelection : MonoBehaviour
 
         Text[] selectedAttacks = teamSlots.GetComponentsInChildren<Text>();
 
-        
+        selectedAttacks[0].text = button.GetComponentInChildren<Text>().text;
+
+        for (int i = 0; i < 4; i++)
+        {
+            gameController.selectedAttack[i] = selectedAttacks[i].text;    
+        }
+            
     }
 }

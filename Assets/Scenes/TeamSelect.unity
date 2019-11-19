@@ -2543,6 +2543,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1018297270}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1456895135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8266598714285318221, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1576775833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1576775833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2715,6 +2727,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.UI.Button, UnityEngine.UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8266598714285318221, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1456895135}
     - target: {fileID: 8266598713161783370, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
         type: 3}
       propertyPath: m_Text

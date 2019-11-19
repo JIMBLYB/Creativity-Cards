@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
     public int sheepLvl, cowLvl, chickenLvl, chickLvl, pigLvl, gooseLvl;
     public bool sheepLock, cowLock, chickenLock, chickLock, pigLock, gooseLock;
 
+    // String array to store all four of the currently selected attacks
+    public string[] selectedAttack = new string[4];
+
     // Initialisation of variables
     public void Awake()
     {
