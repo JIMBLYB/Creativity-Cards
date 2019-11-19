@@ -37,4 +37,14 @@ public class TeamSelection : MonoBehaviour
             i++;
         } while (!assignedAttack);      
     }
+
+    // When a slot is pressed clears it and updates the gamecontroller
+    public void OnSlotClick(Button button)
+    {
+        int buttonIndex = button.transform.GetSiblingIndex();
+
+        // Sets the text on the button to empty and updates gamecontroller
+        button.GetComponentInChildren<Text>().text = string.Empty;
+        gameController.selectedAttack[buttonIndex] = string.Empty;
+    }
 }
