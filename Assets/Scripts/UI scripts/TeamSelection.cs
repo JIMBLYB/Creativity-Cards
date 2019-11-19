@@ -30,7 +30,7 @@ public class TeamSelection : MonoBehaviour
         // Updates the first empty selected attack, or the last one if none are free
         do
         {
-            if (String.IsNullOrEmpty(gameController.selectedAttack[i]) || i == 4)
+            if (String.IsNullOrEmpty(gameController.selectedAttack[i]) || (selectedAttacks[i].text == button.GetComponentInChildren<Text>().text ^ i == 4))
             {
                 selectedAttacks[i].text = button.GetComponentInChildren<Text>().text;
                 gameController.selectedAttack[i] = selectedAttacks[i].text;
