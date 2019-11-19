@@ -11,10 +11,11 @@ public class TeamSelection : MonoBehaviour
 
     public void OnAttackClick(Button button)
     {
+        Debug.Log("cake");
         Transform teamSlots = transform.Find("Team Slots");
 
-        TMP_Text[] selectedAttacks = teamSlots.GetComponentsInChildren<TMP_Text>();
+        Text[] selectedAttacks = teamSlots.GetComponentsInChildren<Text>();
 
-        Debug.Log(selectedAttacks[0]);
+        
     }
 }
