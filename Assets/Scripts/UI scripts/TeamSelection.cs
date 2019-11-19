@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using System;
 using UnityEngine.UI;
 
 public class TeamSelection : MonoBehaviour
@@ -9,30 +7,34 @@ public class TeamSelection : MonoBehaviour
     // Script is designed to sit in 'Canvas - TeamSelect' in the 'TeamSelect' scene
 
     GameController gameController;
+    Transform teamSlots;
+    Text[] selectedAttacks;
     // Fetches the GameController for later use
     void Start()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        // Gets the empty object all the team slots are stored under
+        teamSlots = transform.Find("Team Slots");
+        // Gets all of the current text from the buttons in 'Team Slots' 
+        selectedAttacks = teamSlots.GetComponentsInChildren<Text>();
     }
     
-    // Script is incomplete, currently will always write an attack to the first attack slot.
-    // When updating the game controller only the slot that was overwritten needs to be updated, not all of them.
     public void OnAttackClick(Button button)
     {
-        // Gets the empty object all the team slots are stored under
-        Transform teamSlots = transform.Find("Team Slots");
+        bool assignedAttack = false;
+        int i = 0;
 
-        // Gets all of the current text from the buttons in 'Team Slots' 
-        Text[] selectedAttacks = teamSlots.GetComponentsInChildren<Text>();
-
-        // Writes whatever is written on the button the user pressed to the first attack slot
-        selectedAttacks[0].text = button.GetComponentInChildren<Text>().text;
-
-        // Updates the game controller with all currently selected scripts
-        for (int i = 0; i < 4; i++)
+        // Updates the first empty selected attack, or the last one if none are free
+        do
         {
-            gameController.selectedAttack[i] = selectedAttacks[i].text;    
-        }
-            
+            if (String.IsNullOrEmpty(gameController.selectedAttack[i]) || i == 4)
+            {
+                selectedAttacks[i].text = button.GetComponentInChildren<Text>().text;
+                gameController.selectedAttack[i] = selectedAttacks[i].text;
+                assignedAttack = true;
+            }
+
+            i++;
+        } while (!assignedAttack);      
     }
 }
