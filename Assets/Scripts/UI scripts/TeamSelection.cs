@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class TeamSelection : MonoBehaviour
 {
     // Script is designed to sit in 'Canvas - TeamSelect' in the 'TeamSelect' scene
 
+    public GameObject errorMessage;
     GameController gameController;
     Transform teamSlots;
     Text[] selectedAttacks;
@@ -46,5 +49,36 @@ public class TeamSelection : MonoBehaviour
         // Sets the text on the button to empty and updates gamecontroller
         button.GetComponentInChildren<Text>().text = string.Empty;
         gameController.selectedAttack[buttonIndex] = string.Empty;
+    }
+
+    // Displays an error at the top of the screen if the user tries to continue with less than 4 attacks
+    IEnumerator DisplayError()
+    {
+        errorMessage.SetActive(true);
+        yield return new WaitForSeconds(0.85f);
+        errorMessage.SetActive(false);
+    }
+
+    public void NextButtonClicked()
+    {
+        bool allAttacks = true;
+
+        for (int i = 0; i < gameController.selectedAttack.Length; i++)
+        {   
+            if (String.IsNullOrEmpty(gameController.selectedAttack[i]))
+            {
+                allAttacks = false;
+                break;
+            }
+        }
+
+        if (allAttacks)
+        {
+            SceneManager.LoadScene(4);
+        }
+        else
+        {
+            DisplayError();
+        }
     }
 }
