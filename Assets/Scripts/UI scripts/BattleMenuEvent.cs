@@ -51,14 +51,11 @@ public class BattleMenuEvent : MonoBehaviour
         List<KeyCode> quickTimeKeys = new List<KeyCode>();
         // Instantiates the area that the quick time event will occur in as a child of the canvas.
         GameObject QTArea = Instantiate(areaPrefab, transform) as GameObject;
-
         QTFramework QTFramework = QTArea.GetComponentInChildren<QTFramework>();
-
         // Checks which attack was selected and then sets the quick time button sequence accordingly.
         // Currently uses placeholder sequences
         string selectedAttack = button.GetComponentInChildren<Text>().text;
-        if (player.GetComponent<PlayerAttack>().arrived)
-        {
+        
             Debug.Log("attacking");
             switch (selectedAttack)
             {
@@ -116,8 +113,8 @@ public class BattleMenuEvent : MonoBehaviour
             }
             // Sends the selected sequence to the quick time area
             QTFramework.sequence = quickTimeKeys;
-            player.GetComponent<PlayerAttack>().arrived = false;
-        }
+        player.GetComponent<PlayerAttack>().returning = true;
+        
     }
     
 }

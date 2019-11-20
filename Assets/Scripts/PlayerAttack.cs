@@ -7,8 +7,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 destination;
     private Vector3 start_point;
     private bool going = false;
-    public bool arrived = false;
-    private bool returning = false;
+    public bool returning = false;
     private GameObject targeted_enemy;
     private object selected_attack;
     public GameObject Battle_UI;
@@ -44,11 +43,10 @@ public class PlayerAttack : MonoBehaviour
                 {
                     Debug.Log("arrived");
                     going = false;
-                    arrived = true;
-                    returning = true;
+                    Battle_UI.GetComponent<BattleMenuEvent>().Attacking(Battle_UI.GetComponent<BattleMenuEvent>().selected_button);
                 }
             }
-            else if (!arrived && returning)
+            else if (returning)
             {
                 Debug.Log("returning");
                 transform.position = Vector3.MoveTowards(transform.position, start_point, 0.2f);
