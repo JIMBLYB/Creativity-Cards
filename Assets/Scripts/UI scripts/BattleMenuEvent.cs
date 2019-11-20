@@ -9,6 +9,29 @@ public class BattleMenuEvent : MonoBehaviour
     public List<KeyCode> quickTimeKeys;
     public Object areaPrefab;
 
+    private void UpdateAttackSlots()
+    {
+        GameController gameController;
+        Text[] selectedAttacks;
+
+        // Gets the game controller for easier access
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+
+        // Gets the text component in all of the selected attack buttons
+        selectedAttacks = transform.GetComponentsInChildren<Text>();
+
+        // Assigns the text in each button to the attacks stored in the gameController
+        for (int i = 0; i < selectedAttacks.Length; i++)
+        {
+            selectedAttacks[i].text = gameController.selectedAttack[i];
+        }
+    }
+
+    void Start()
+    {
+        UpdateAttackSlots();
+    }
+
     public void OnAttackSelect(Button button)
     {
         // Instantiates the area that the quick time event will occur in as a child of the canvas.
