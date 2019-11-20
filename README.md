@@ -21,6 +21,9 @@ Tom Trathen
 Naomi Fielder (Also helping with art and animation)\
 Jack Keane
 
+### External Artist/ Designer
+Barbara Rudolph
+
 
 ## Constraints
 * Genre - Beat-Em Up
