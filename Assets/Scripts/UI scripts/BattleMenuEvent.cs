@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Code is designed to sit in the 'Canvas - AttackScreen' in 'BattleScene' scene.
 public class BattleMenuEvent : MonoBehaviour
 {
     public List<KeyCode> quickTimeKeys;
@@ -72,6 +73,7 @@ public class BattleMenuEvent : MonoBehaviour
                 break;
         }
 
+        // Sends the selected sequence to the quick time area
         QTFramework.sequence = quickTimeKeys;
     }
 }
