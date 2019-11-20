@@ -36,14 +36,19 @@ public class BattleMenuEvent : MonoBehaviour
         attacking = false;
     }
 
+    //when an attack button is pressed
     public void OnAttackSelect(Button button)
     {
+        //if the player isn't already in the attack sequence
         if (!attacking)
         {
+            //the player enters the attack sequence
             attacking = true;
             selected_button = button;
         }
     }
+
+    //This manages the quicktime events
     public void Attacking(Button button)
     {
         // Initialises the sequence to pass to QTFramework.
@@ -113,6 +118,7 @@ public class BattleMenuEvent : MonoBehaviour
             }
             // Sends the selected sequence to the quick time area
             QTFramework.sequence = quickTimeKeys;
+        //the quick time event has ended, tells the player to go back.
         player.GetComponent<PlayerAttack>().returning = true;
         
     }
