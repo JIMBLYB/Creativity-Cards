@@ -6,7 +6,6 @@ using UnityEngine.UI;
 // Code is designed to sit in the 'Canvas - AttackScreen' in 'BattleScene' scene.
 public class BattleMenuEvent : MonoBehaviour
 {
-    public List<KeyCode> quickTimeKeys;
     public Object areaPrefab;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
@@ -35,6 +34,9 @@ public class BattleMenuEvent : MonoBehaviour
 
     public void OnAttackSelect(Button button)
     {
+        // Initialises the sequence to pass to QTFramework.
+        // Is initialised as a new list to prevent crashing on unknown attack
+        List<KeyCode> quickTimeKeys = new List<KeyCode>();
         // Instantiates the area that the quick time event will occur in as a child of the canvas.
         GameObject QTArea = Instantiate(areaPrefab, transform) as GameObject;
 
