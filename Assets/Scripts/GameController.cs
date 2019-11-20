@@ -5,8 +5,6 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public float money;
-
-    [SerializeField]
     public int maxHealth;
     public int health;
     public int sheepLvl, cowLvl, chickenLvl, chickLvl, pigLvl, gooseLvl;
