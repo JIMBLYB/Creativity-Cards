@@ -8,7 +8,8 @@ James Berry\
 Alex Williamson
 
 ### Artists
-Lewis Reynolds
+Lewis Reynolds\
+Owain Hall
 
 ### Animation
 Adam Lambert
@@ -19,6 +20,9 @@ Tom Trathen
 ### Designers
 Naomi Fielder (Also helping with art and animation)\
 Jack Keane
+
+### External Artist/ Designer
+Barbara Rudolph
 
 
 ## Constraints
