@@ -17,7 +17,7 @@ public class QTFramework : MonoBehaviour
     public int keySpeed = 1;
     public GameObject buttonPrefab;
     private RectTransform QTArea;
-    private List<GameObject> QTButtons = new List<GameObject>();
+    public List<GameObject> QTButtons = new List<GameObject>();
     private List<bool> buttonEnteredArea = new List<bool>();    
 
     private void GenerateButtons()

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5066479212346091000}
   - component: {fileID: 4538618024178352143}
   - component: {fileID: 4415367218924889297}
+  - component: {fileID: 7812320172549400887}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -45,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44e0ec6b793246419b474c98b3aa513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement_speed: 1
+  returning: 0
+  Battle_UI: {fileID: 0}
 --- !u!114 &4415367218924889297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +67,21 @@ MonoBehaviour:
   accuracy: 0
   attackSequence: 
   QTAreaPrefab: {fileID: 0}
+--- !u!111 &7812320172549400887
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997766347533124409}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8921390250992064393
 GameObject:
   m_ObjectHideFlags: 0
