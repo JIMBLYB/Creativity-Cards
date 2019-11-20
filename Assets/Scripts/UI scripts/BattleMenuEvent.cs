@@ -7,12 +7,8 @@ using UnityEngine.UI;
 public class BattleMenuEvent : MonoBehaviour
 {
     public Object areaPrefab;
-    private bool attacking;
-    private GameObject targeted_enemy;
-    private Vector3 start_point;
-    private Vector3 destination;
-    private bool going;
-    private bool arrived;
+    public bool attacking;
+    public GameObject player;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -55,7 +51,7 @@ public class BattleMenuEvent : MonoBehaviour
             // Checks which attack was selected and then sets the quick time button sequence accordingly.
             // Currently uses placeholder sequences
             string selectedAttack = button.GetComponentInChildren<Text>().text;
-            if (arrived)
+            if (player.GetComponent<PlayerAttack>().arrived)
             {
                 switch (selectedAttack)
                 {
@@ -113,56 +109,7 @@ public class BattleMenuEvent : MonoBehaviour
                 }
                 // Sends the selected sequence to the quick time area
                 QTFramework.sequence = quickTimeKeys;
-                arrived = false;
-            }
-        }
-    }
-
-    public void Update()
-    {
-        if (attacking)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log(hit.transform.tag);
-                    if (hit.transform.tag == "Enemy")
-                    {
-                        Debug.Log("Enemy");
-                        targeted_enemy = hit.transform.gameObject;
-                        start_point = transform.position;
-                        destination = hit.transform.position - transform.position;
-                        if (hit.transform.position.x > transform.position.x)
-                        {
-                            destination.x -= 3.1f;
-                        }
-                        else
-                        {
-                            destination.x -= 0.1f;
-                        }
-                        going = true;
-                    }
-                }
-            }
-            if (going)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, destination, 0.3f);
-                if (transform.position == destination)
-                {
-                    going = false;
-                    arrived = true;
-                }
-            }
-            else if (!arrived)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, start_point, 0.3f);
-                if (transform.position == start_point)
-                {
-                    attacking = false;
-                }
+                player.GetComponent<PlayerAttack>().arrived = false;
             }
         }
     }
