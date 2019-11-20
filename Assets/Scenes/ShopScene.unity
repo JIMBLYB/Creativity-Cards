@@ -234,6 +234,11 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 671da8d7d4802aa4bbffd9daeb8a1258, type: 3}
+    - target: {fileID: 1082859636556615104, guid: cea0db58174d938469096b7094e469f6,
+        type: 3}
+      propertyPath: m_Text
+      value: Chick
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea0db58174d938469096b7094e469f6, type: 3}
 --- !u!224 &67538006 stripped
@@ -930,6 +935,11 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 713f0d789127bf64e9cdb7b6e34e2d88, type: 3}
+    - target: {fileID: 1082859636556615104, guid: cea0db58174d938469096b7094e469f6,
+        type: 3}
+      propertyPath: m_Text
+      value: Chicken
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea0db58174d938469096b7094e469f6, type: 3}
 --- !u!224 &1401651423 stripped
@@ -1202,6 +1212,11 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: dd2fc75ee0afd7341b8425dddcb3b5eb, type: 3}
+    - target: {fileID: 1082859636556615104, guid: cea0db58174d938469096b7094e469f6,
+        type: 3}
+      propertyPath: m_Text
+      value: Goose
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea0db58174d938469096b7094e469f6, type: 3}
 --- !u!224 &1638603795 stripped
@@ -1380,6 +1395,11 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 0d98575f6dd5c0a4dba806346c0d0f6e, type: 3}
+    - target: {fileID: 1082859636556615104, guid: cea0db58174d938469096b7094e469f6,
+        type: 3}
+      propertyPath: m_Text
+      value: Pig
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea0db58174d938469096b7094e469f6, type: 3}
 --- !u!224 &1690355178 stripped
@@ -1883,6 +1903,11 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: a06509b733a344c49b33003c1dcda11a, type: 3}
+    - target: {fileID: 1082859636556615104, guid: cea0db58174d938469096b7094e469f6,
+        type: 3}
+      propertyPath: m_Text
+      value: Cow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea0db58174d938469096b7094e469f6, type: 3}
 --- !u!224 &2086117600 stripped
