@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 
 // Quick time event handler.
-// Code from https://gist.github.com/grimmdev/b85994d1b7cad444eb69 has been used as inspiration.
 
 // This class has been designed to be added to a game object which defines the area you want the quick time event to occur in. 
 // The function runQTEvent should then be called whenever a quick time event should run and must be passed the sequence of key presses to display
@@ -14,7 +13,6 @@ public class QTFramework : MonoBehaviour
     // Stores the keys in the quick time event sequence.
     // This should be passed to the framework
     public List<KeyCode> sequence;
-
     public int buttonOffset = 5;
     public int keySpeed = 1;
     public GameObject buttonPrefab;
