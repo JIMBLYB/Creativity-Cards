@@ -20,6 +20,27 @@ public class TeamSelection : MonoBehaviour
         teamSlots = transform.Find("Team Slots");
         // Gets all of the current text from the buttons in 'Team Slots' 
         selectedAttacks = teamSlots.GetComponentsInChildren<Text>();
+
+        // Sets the attack slot buttons to what's currently stored in the gameController
+        int i = 0;
+        do
+        {
+            // If there is no attack stored in the gameController sets all remaining attack slots to empty.
+            // Else sets the attack slot to the attack in the gameController
+            if (string.IsNullOrEmpty(gameController.selectedAttack[i]))
+            {
+                for (i = i; i < selectedAttacks.Length; i++)
+                {
+                    selectedAttacks[i].text = string.Empty;
+                }
+            } 
+            else 
+            {
+                selectedAttacks[i].text = gameController.selectedAttack[i];
+                i++;
+            }
+                
+        } while (i < selectedAttacks.Length);
     }
     
     public void OnAttackClick(Button button)
@@ -30,7 +51,7 @@ public class TeamSelection : MonoBehaviour
         // Updates the first empty selected attack, or the last one if none are free
         do
         {
-            if (String.IsNullOrEmpty(gameController.selectedAttack[i]) || (selectedAttacks[i].text == button.GetComponentInChildren<Text>().text ^ i == 4))
+            if (string.IsNullOrEmpty(gameController.selectedAttack[i]) || (selectedAttacks[i].text == button.GetComponentInChildren<Text>().text ^ i == 4))
             {
                 selectedAttacks[i].text = button.GetComponentInChildren<Text>().text;
                 gameController.selectedAttack[i] = selectedAttacks[i].text;
@@ -65,7 +86,7 @@ public class TeamSelection : MonoBehaviour
 
         for (int i = 0; i < gameController.selectedAttack.Length; i++)
         {   
-            if (String.IsNullOrEmpty(gameController.selectedAttack[i]))
+            if (string.IsNullOrEmpty(gameController.selectedAttack[i]))
             {
                 allAttacks = false;
                 break;
