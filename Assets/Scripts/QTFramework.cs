@@ -24,7 +24,7 @@ public class QTFramework : MonoBehaviour
 
     private void GenerateButtons()
     {
-        if (sequence != null)
+        if (sequence.Count > 0)
         {
             // Sets y and z positions of the buttons as they will remain constant
             Vector3 buttonPos = new Vector3();
@@ -96,9 +96,14 @@ public class QTFramework : MonoBehaviour
         // Destroys QTArea once quick time event is finsihed.
         if (QTButtons.Count == 0)
         {
-            // Returns the % of keys hit as a decimal to the BattleMenuEvent script
-            float successRate = keysHit / sequenceLength;
-            transform.parent.parent.GetComponent<BattleMenuEvent>().QTResult = successRate;
+            // Check to prevent divide by zero errors when empty sequence is sent.
+            if (sequenceLength > 0)
+            {
+                // Returns the % of keys hit as a decimal to the BattleMenuEvent script
+                float successRate = keysHit / sequenceLength;
+                transform.parent.parent.GetComponent<BattleMenuEvent>().QTResult = successRate;
+            }
+            
 
             Destroy(transform.parent.gameObject);
         }
