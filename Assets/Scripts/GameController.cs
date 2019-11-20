@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
     public float money;
     public int maxHealth;
     public int health;
+    public int marrowHealth;
+    public int dayNum;
     public int sheepLvl, cowLvl, chickenLvl, chickLvl, pigLvl, gooseLvl;
     public bool sheepLock, cowLock, chickenLock, chickLock, pigLock, gooseLock;
 
@@ -21,9 +23,13 @@ public class GameController : MonoBehaviour
 
         // Sets health to the max
         health = maxHealth;
+        marrowHealth = 100;
 
         //Resets money
         money = 250;
+
+        //Resets Day num
+        dayNum = 1;
 
         //Sets animal starting level
         sheepLvl = 1;
