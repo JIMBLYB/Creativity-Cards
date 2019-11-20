@@ -18,7 +18,9 @@ public class QTFramework : MonoBehaviour
     public GameObject buttonPrefab;
     private RectTransform QTArea;
     private List<GameObject> QTButtons = new List<GameObject>();
-    private List<bool> buttonEnteredArea = new List<bool>();    
+    private List<bool> buttonEnteredArea = new List<bool>();  
+    private int sequenceLength;  
+    private int keysHit = 0;
 
     private void GenerateButtons()
     {
@@ -62,8 +64,11 @@ public class QTFramework : MonoBehaviour
         // Gets the area the quick time event is happening in and uses it for refrence when placing the buttons. 
         QTArea = transform.parent.GetComponent<RectTransform>();
 
-        // Generates quick time buttons
+        // Generates quick time buttons.
         GenerateButtons();
+
+        // Gets the initial length of the sequence.
+        sequenceLength = sequence.Count;
     }
 
     void Update()
@@ -72,6 +77,7 @@ public class QTFramework : MonoBehaviour
         {
             if (Input.GetKeyDown(sequence[0]) && buttonEnteredArea[0])
             {
+                keysHit++;
                 Destroy(QTButtons[0]);
                 RemoveListItems(0);
             }
@@ -88,9 +94,12 @@ public class QTFramework : MonoBehaviour
         }
 
         // Destroys QTArea once quick time event is finsihed.
-        // This is placeholder.
         if (QTButtons.Count == 0)
         {
+            // Returns the % of keys hit as a decimal to the BattleMenuEvent script
+            float successRate = keysHit / sequenceLength;
+            transform.parent.parent.GetComponent<BattleMenuEvent>().QTResult = successRate;
+
             Destroy(transform.parent.gameObject);
         }
 
