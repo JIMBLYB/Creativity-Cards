@@ -10,6 +10,8 @@ public class BattleMenuEvent : MonoBehaviour
     public bool attacking;
     public GameObject player;
     public Button selected_button;
+    QTFramework QTFramework;
+    private bool quickTime = false;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -56,12 +58,10 @@ public class BattleMenuEvent : MonoBehaviour
         List<KeyCode> quickTimeKeys = new List<KeyCode>();
         // Instantiates the area that the quick time event will occur in as a child of the canvas.
         GameObject QTArea = Instantiate(areaPrefab, transform) as GameObject;
-        QTFramework QTFramework = QTArea.GetComponentInChildren<QTFramework>();
+        QTFramework = QTArea.GetComponentInChildren<QTFramework>();
         // Checks which attack was selected and then sets the quick time button sequence accordingly.
         // Currently uses placeholder sequences
-        string selectedAttack = button.GetComponentInChildren<Text>().text;
-        
-            Debug.Log("attacking");
+        string selectedAttack = button.GetComponentInChildren<Text>().text;       
             switch (selectedAttack)
             {
                 case "Light":
@@ -118,9 +118,25 @@ public class BattleMenuEvent : MonoBehaviour
             }
             // Sends the selected sequence to the quick time area
             QTFramework.sequence = quickTimeKeys;
-        //the quick time event has ended, tells the player to go back.
-        player.GetComponent<PlayerAttack>().returning = true;
-        
+        //the quick time event has ended, tells the player to go back   
     }
-    
+    private void Update()
+    {
+        if (attacking)
+        {
+            if (QTFramework.QTButtons.Count > 0)
+            {
+                quickTime = true;
+            }
+        }
+        if (quickTime)
+        {
+            if (QTFramework.QTButtons.Count == 0)
+            {
+                player.GetComponent<PlayerAttack>().returning = true;
+                quickTime = false;
+            }
+        }
+    }
+
 }

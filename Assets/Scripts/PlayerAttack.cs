@@ -28,7 +28,14 @@ public class PlayerAttack : MonoBehaviour
                             start_point = transform.position;
                         //finds where the player will have to move to reach the enemy
                             destination = hit.transform.position;
-                            destination = destination * 0.9f;
+                            if (destination.x > transform.position.x)
+                            {
+                            destination.x -= 1;
+                            }
+                            else
+                            {
+                            destination.x += 1;
+                            }
                         //sets the player as moving towards an enemy
                             going = true;
                         }
