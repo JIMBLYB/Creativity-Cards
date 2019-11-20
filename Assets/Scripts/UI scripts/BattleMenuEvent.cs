@@ -9,6 +9,7 @@ public class BattleMenuEvent : MonoBehaviour
     public Object areaPrefab;
     public bool attacking;
     public GameObject player;
+    public Button selected_button;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -40,24 +41,30 @@ public class BattleMenuEvent : MonoBehaviour
         if (!attacking)
         {
             attacking = true;
-            // Initialises the sequence to pass to QTFramework.
-            // Is initialised as a new list to prevent crashing on unknown attack
-            List<KeyCode> quickTimeKeys = new List<KeyCode>();
-            // Instantiates the area that the quick time event will occur in as a child of the canvas.
-            GameObject QTArea = Instantiate(areaPrefab, transform) as GameObject;
+            selected_button = button;
+        }
+    }
+    public void Attacking(Button button)
+    {
+        // Initialises the sequence to pass to QTFramework.
+        // Is initialised as a new list to prevent crashing on unknown attack
+        List<KeyCode> quickTimeKeys = new List<KeyCode>();
+        // Instantiates the area that the quick time event will occur in as a child of the canvas.
+        GameObject QTArea = Instantiate(areaPrefab, transform) as GameObject;
 
-            QTFramework QTFramework = QTArea.GetComponentInChildren<QTFramework>();
+        QTFramework QTFramework = QTArea.GetComponentInChildren<QTFramework>();
 
-            // Checks which attack was selected and then sets the quick time button sequence accordingly.
-            // Currently uses placeholder sequences
-            string selectedAttack = button.GetComponentInChildren<Text>().text;
-            if (player.GetComponent<PlayerAttack>().arrived)
+        // Checks which attack was selected and then sets the quick time button sequence accordingly.
+        // Currently uses placeholder sequences
+        string selectedAttack = button.GetComponentInChildren<Text>().text;
+        if (player.GetComponent<PlayerAttack>().arrived)
+        {
+            Debug.Log("attacking");
+            switch (selectedAttack)
             {
-                switch (selectedAttack)
-                {
-                    case "Light":
-                        {
-                            quickTimeKeys = new List<KeyCode>
+                case "Light":
+                    {
+                        quickTimeKeys = new List<KeyCode>
                 {
                     KeyCode.L,
                     KeyCode.I,
@@ -65,11 +72,11 @@ public class BattleMenuEvent : MonoBehaviour
                     KeyCode.H,
                     KeyCode.T
                 };
-                            break;
-                        }
-                    case "Medium":
-                        {
-                            quickTimeKeys = new List<KeyCode>
+                        break;
+                    }
+                case "Medium":
+                    {
+                        quickTimeKeys = new List<KeyCode>
                 {
                     KeyCode.M,
                     KeyCode.E,
@@ -77,11 +84,11 @@ public class BattleMenuEvent : MonoBehaviour
                     KeyCode.I,
                     KeyCode.U
                 };
-                            break;
-                        }
-                    case "Heavy":
-                        {
-                            quickTimeKeys = new List<KeyCode>
+                        break;
+                    }
+                case "Heavy":
+                    {
+                        quickTimeKeys = new List<KeyCode>
                 {
                     KeyCode.H,
                     KeyCode.E,
@@ -89,11 +96,11 @@ public class BattleMenuEvent : MonoBehaviour
                     KeyCode.V,
                     KeyCode.Y
                 };
-                            break;
-                        }
-                    case "Sheep":
-                        {
-                            quickTimeKeys = new List<KeyCode>
+                        break;
+                    }
+                case "Sheep":
+                    {
+                        quickTimeKeys = new List<KeyCode>
                 {
                     KeyCode.S,
                     KeyCode.H,
@@ -101,16 +108,16 @@ public class BattleMenuEvent : MonoBehaviour
                     KeyCode.E,
                     KeyCode.P
                 };
-                            break;
-                        }
-                    default:
-                        Debug.Log("ERROR: Unkown attack");
                         break;
-                }
-                // Sends the selected sequence to the quick time area
-                QTFramework.sequence = quickTimeKeys;
-                player.GetComponent<PlayerAttack>().arrived = false;
+                    }
+                default:
+                    Debug.Log("ERROR: Unkown attack");
+                    break;
             }
+            // Sends the selected sequence to the quick time area
+            QTFramework.sequence = quickTimeKeys;
+            player.GetComponent<PlayerAttack>().arrived = false;
         }
     }
+    
 }
