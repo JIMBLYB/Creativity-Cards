@@ -11,7 +11,6 @@ public class PlayerAttack : MonoBehaviour
     private bool moving;
     private GameObject targeted_enemy;
     private object selected_attack;
-    public float movement_speed;
     void Update()
     {
         //IF AN ATTACK IS SELECTED IN THE UI
@@ -29,15 +28,8 @@ public class PlayerAttack : MonoBehaviour
                         targeted_enemy = hit.transform.gameObject;
                         moving = true;
                         start_point = transform.position;
-                        destination = hit.transform.position - transform.position;
-                        if (hit.transform.position.x > transform.position.x)
-                        {
-                            destination.x -= 3.1f;
-                        }
-                        else
-                        {
-                            destination.x -= 0.1f;
-                        }
+                        destination = hit.transform.position;                   
+                        destination = destination * 0.9f;
                         going = true;
                     }
 
@@ -47,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (going)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destination, movement_speed);
+            transform.position = Vector3.MoveTowards(transform.position, destination, 0.2f);
             if (transform.position == destination)
             {
                 going = false;
@@ -67,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (returning)
         {
-            transform.position = Vector3.MoveTowards(transform.position, start_point, movement_speed);
+            transform.position = Vector3.MoveTowards(transform.position, start_point, 0.2f);
             if (transform.position == start_point)
             {
                 returning = false;
