@@ -12,6 +12,7 @@ public class BattleMenuEvent : MonoBehaviour
     private Vector3 start_point;
     private Vector3 destination;
     private bool going;
+    private bool arrived;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -55,11 +56,13 @@ public class BattleMenuEvent : MonoBehaviour
             // Checks which attack was selected and then sets the quick time button sequence accordingly.
             // Currently uses placeholder sequences
             string selectedAttack = button.GetComponentInChildren<Text>().text;
-            switch (selectedAttack)
+            if (arrived)
             {
-                case "Light":
-                    {
-                        quickTimeKeys = new List<KeyCode>
+                switch (selectedAttack)
+                {
+                    case "Light":
+                        {
+                            quickTimeKeys = new List<KeyCode>
                 {
                     KeyCode.L,
                     KeyCode.I,
@@ -67,11 +70,11 @@ public class BattleMenuEvent : MonoBehaviour
                     KeyCode.H,
                     KeyCode.T
                 };
-                        break;
-                    }
-                case "Medium":
-                    {
-                        quickTimeKeys = new List<KeyCode>
+                            break;
+                        }
+                    case "Medium":
+                        {
+                            quickTimeKeys = new List<KeyCode>
                 {
                     KeyCode.M,
                     KeyCode.E,
@@ -79,11 +82,11 @@ public class BattleMenuEvent : MonoBehaviour
                     KeyCode.I,
                     KeyCode.U
                 };
-                        break;
-                    }
-                case "Heavy":
-                    {
-                        quickTimeKeys = new List<KeyCode>
+                            break;
+                        }
+                    case "Heavy":
+                        {
+                            quickTimeKeys = new List<KeyCode>
                 {
                     KeyCode.H,
                     KeyCode.E,
@@ -91,11 +94,11 @@ public class BattleMenuEvent : MonoBehaviour
                     KeyCode.V,
                     KeyCode.Y
                 };
-                        break;
-                    }
-                case "Sheep":
-                    {
-                        quickTimeKeys = new List<KeyCode>
+                            break;
+                        }
+                    case "Sheep":
+                        {
+                            quickTimeKeys = new List<KeyCode>
                 {
                     KeyCode.S,
                     KeyCode.H,
@@ -103,44 +106,68 @@ public class BattleMenuEvent : MonoBehaviour
                     KeyCode.E,
                     KeyCode.P
                 };
+                            break;
+                        }
+                    default:
+                        Debug.Log("ERROR: Unkown attack");
                         break;
-                    }
-                default:
-                    Debug.Log("ERROR: Unkown attack");
-                    break;
+                }
+                // Sends the selected sequence to the quick time area
+                QTFramework.sequence = quickTimeKeys;
+                arrived = false;
             }
-
-            // Sends the selected sequence to the quick time area
-            QTFramework.sequence = quickTimeKeys;
         }
     }
 
-    public void Target_Select()
+    private void Target_Select()
     {
         if (Input.GetMouseButtonDown(0))
         {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.tag == "Enemy")
                 {
-                    if (hit.transform.tag == "Enemy")
+                    targeted_enemy = hit.transform.gameObject;
+                    start_point = transform.position;
+                    destination = hit.transform.position - transform.position;
+                    if (hit.transform.position.x > transform.position.x)
                     {
-                        targeted_enemy = hit.transform.gameObject;
-                        start_point = transform.position;
-                        destination = hit.transform.position - transform.position;
-                        if (hit.transform.position.x > transform.position.x)
-                        {
-                            destination.x -= 3.1f;
-                        }
-                        else
-                        {
-                            destination.x -= 0.1f;
-                        }
-                        going = true;
-                    }              
+                        destination.x -= 3.1f;
+                    }
+                    else
+                    {
+                        destination.x -= 0.1f;
+                    }
+                    going = true;
+                }
             }
         }
 
 
+    }
+    public void Update()
+    {
+        if (attacking)
+        {
+            if (going)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, destination, 0.3f);
+                if (transform.position == destination)
+                {
+                    going = false;
+                    arrived = true;
+                }
+            }
+            else if (!arrived)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, start_point, 0.3f);
+                if (transform.position == start_point)
+                {
+                    attacking = false;
+                }
+            }
+        }
     }
 }
