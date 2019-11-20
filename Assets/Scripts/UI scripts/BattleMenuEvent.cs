@@ -44,7 +44,6 @@ public class BattleMenuEvent : MonoBehaviour
         if (!attacking)
         {
             attacking = true;
-            Target_Select();
             // Initialises the sequence to pass to QTFramework.
             // Is initialised as a new list to prevent crashing on unknown attack
             List<KeyCode> quickTimeKeys = new List<KeyCode>();
@@ -119,38 +118,35 @@ public class BattleMenuEvent : MonoBehaviour
         }
     }
 
-    private void Target_Select()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.tag == "Enemy")
-                {
-                    targeted_enemy = hit.transform.gameObject;
-                    start_point = transform.position;
-                    destination = hit.transform.position - transform.position;
-                    if (hit.transform.position.x > transform.position.x)
-                    {
-                        destination.x -= 3.1f;
-                    }
-                    else
-                    {
-                        destination.x -= 0.1f;
-                    }
-                    going = true;
-                }
-            }
-        }
-
-
-    }
     public void Update()
     {
         if (attacking)
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Debug.Log("hit");
+                    if (hit.transform.tag == "Enemy")
+                    {
+                        Debug.Log("Enemy");
+                        targeted_enemy = hit.transform.gameObject;
+                        start_point = transform.position;
+                        destination = hit.transform.position - transform.position;
+                        if (hit.transform.position.x > transform.position.x)
+                        {
+                            destination.x -= 3.1f;
+                        }
+                        else
+                        {
+                            destination.x -= 0.1f;
+                        }
+                        going = true;
+                    }
+                }
+            }
             if (going)
             {
                 transform.position = Vector3.MoveTowards(transform.position, destination, 0.3f);
