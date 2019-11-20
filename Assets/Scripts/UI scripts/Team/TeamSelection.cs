@@ -13,15 +13,9 @@ public class TeamSelection : MonoBehaviour
     Transform teamSlots;
     Text[] selectedAttacks;
     // Fetches the GameController for later use
-    void Start()
-    {
-        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-        // Gets the empty object all the team slots are stored under
-        teamSlots = transform.Find("Team Slots");
-        // Gets all of the current text from the buttons in 'Team Slots' 
-        selectedAttacks = teamSlots.GetComponentsInChildren<Text>();
 
-        // Sets the attack slot buttons to what's currently stored in the gameController
+    private void UpdateAttackSlots()
+    {
         int i = 0;
         do
         {
@@ -41,6 +35,17 @@ public class TeamSelection : MonoBehaviour
             }
                 
         } while (i < selectedAttacks.Length);
+    }
+    void Start()
+    {
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        // Gets the empty object all the team slots are stored under
+        teamSlots = transform.Find("Team Slots");
+        // Gets all of the current text from the buttons in 'Team Slots' 
+        selectedAttacks = teamSlots.GetComponentsInChildren<Text>();
+
+        // Sets the attack slot buttons to what's currently stored in the gameController
+        UpdateAttackSlots();
     }
     
     public void OnAttackClick(Button button)
