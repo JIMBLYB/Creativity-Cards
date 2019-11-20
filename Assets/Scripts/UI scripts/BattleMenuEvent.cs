@@ -41,12 +41,12 @@ public class BattleMenuEvent : MonoBehaviour
     //when an attack button is pressed
     public void OnAttackSelect(Button button)
     {
+        selected_button = button;
         //if the player isn't already in the attack sequence
         if (!attacking)
         {
             //the player enters the attack sequence
             attacking = true;
-            selected_button = button;
         }
     }
 
