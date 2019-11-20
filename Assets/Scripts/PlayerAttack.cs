@@ -53,6 +53,7 @@ public class PlayerAttack : MonoBehaviour
                 if (transform.position == start_point)
                 {
                     Battle_UI.GetComponent<BattleMenuEvent>().attacking = false;
+                    returning = false;
                 }
             }
         }
