@@ -9,6 +9,7 @@ public class BattleMenuEvent : MonoBehaviour
     public List<KeyCode> quickTimeKeys;
     public Object areaPrefab;
 
+    // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
     {
         GameController gameController;
@@ -40,6 +41,7 @@ public class BattleMenuEvent : MonoBehaviour
         QTFramework QTFramework = QTArea.GetComponentInChildren<QTFramework>();
 
         // Checks which attack was selected and then sets the quick time button sequence accordingly.
+        // Currently uses placeholder sequences
         string selectedAttack = button.GetComponentInChildren<Text>().text;
         switch (selectedAttack)
         {
