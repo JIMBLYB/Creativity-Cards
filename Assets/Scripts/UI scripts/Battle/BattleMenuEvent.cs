@@ -39,56 +39,28 @@ public class BattleMenuEvent : MonoBehaviour
         playerAttack = player.GetComponent<PlayerAttack>();
     }
 
+    public void OnAttackSelect(Button button)
+        {
+            // Sets the selected attack in PlayerAttackScript to the button pressed
+            playerAttack.attackSelected = button.GetComponentInChildren<Text>().text;
+        }
+
+
     void Start()
     {
         UpdateAttackSlots();
     }
 
-    //when an attack button is pressed
-    // public void OnAttackSelect(Button button)
-    // {
-    //     attackSelected = button;
-    //     //if the player isn't already in the attack sequence
-    //     if (!attacking)
-    //     {
-    //         //the player enters the attack sequence
-    //         attacking = true;
-    //     }
-    // }
-
-    public void OnAttackSelect(Button button)
+    void Update()
     {
-        // Sets the selected attack in PlayerAttackScript to the button pressed
-        playerAttack.attackSelected = button.GetComponentInChildren<Text>().text;
+        // QTFramework will only ever return a value between 0 and 1.
+        // If a value has been returned by QTFramework prints QTResult.
+        // This action is placeholder.
+        // QTResult is then reset to two so this doesn't trigger continuously
+        if (QTResult <= 1)
+        {
+            Debug.Log(QTResult);
+            QTResult = 2;
+        }
     }
-
-    // private void Update()
-    // {
-    //     if (attacking)
-    //     {
-    //         if (QTFramework.QTButtons.Count > 0)
-    //         {
-    //             quickTime = true;
-    //         }
-    //     }
-    //     if (quickTime)
-    //     {
-    //         if (QTFramework.QTButtons.Count == 0)
-    //         {
-    //             player.GetComponent<PlayerAttack>().returning = true;
-    //             quickTime = false;
-    //         }
-    //     }
-
-    //     // QTFramework will only ever return a value between 0 and 1.
-    //     // If a value has been returned by QTFramework prints QTResult.
-    //     // This action is placeholder.
-    //     // QTResult is then reset to two so this doesn't trigger continuously
-    //     if (QTResult <= 1)
-    //     {
-    //         Debug.Log(QTResult);
-    //         QTResult = 2;
-    //     }
-    // }
-
 }
