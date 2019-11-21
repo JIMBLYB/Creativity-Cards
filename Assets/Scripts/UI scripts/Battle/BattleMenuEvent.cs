@@ -15,6 +15,8 @@ public class BattleMenuEvent : MonoBehaviour
     public GameObject targetedEnemy = null;
     // A bool to denote whether it is the players turn or the enemies.
     private bool playersTurn = true;
+    private bool enemiesStartedAttack = false;
+    private GameObject[] enemies;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -49,6 +51,8 @@ public class BattleMenuEvent : MonoBehaviour
         // Gets the player gameObject and PlayerAttack script for later use
         player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
     }
 
     void Update()
@@ -63,7 +67,7 @@ public class BattleMenuEvent : MonoBehaviour
             
             if (QTResult <= 1)
             {
-                Debug.Log(QTResult);
+                //Debug.Log(QTResult);
 
                 // Targeted enemy takes 10 * QTResult amount of damage.
                 // This is placeholder, each attack should have its own damage values.
@@ -76,7 +80,31 @@ public class BattleMenuEvent : MonoBehaviour
                 playerAttack.canAttack = false;
                 playersTurn = false;
             }
-        }
-        
+        } 
+        else 
+        {
+            if (!enemiesStartedAttack)
+            {
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    enemies[i].GetComponent<EnemyController>().canAttack = true;
+                }
+                enemiesStartedAttack = true;
+            }
+            else
+            {
+                playersTurn = true;
+                enemiesStartedAttack = false;
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    if (enemies[i].GetComponent<EnemyController>().canAttack)
+                    {
+                        playersTurn = false;
+                        enemiesStartedAttack = true;
+                        break;
+                    }
+                } 
+            }  
+        }        
     }
 }

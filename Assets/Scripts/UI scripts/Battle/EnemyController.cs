@@ -10,7 +10,6 @@ public class EnemyController : MonoBehaviour
     // Variables for controlling enemies actions
     public bool canAttack = false;
     bool movedTo = false;
-    bool returning = false;
 
     Vector3 originalPos;
     
@@ -50,6 +49,7 @@ public class EnemyController : MonoBehaviour
         if (transform.position == originalPos)
         {
             canAttack = false;
+            movedTo = false;
         }
         
     }
