@@ -108,6 +108,7 @@ public class PlayerAttack : MonoBehaviour
                 originalPos = transform.position;
                 //finds where the player will have to move to reach the enemy
                 targetedEnemy = hit.transform.position;
+                // Offsets the target position to stop the player clipping into the enemy.
                 if (targetedEnemy.x > transform.position.x)
                 {
                     targetedEnemy.x -= 1;
