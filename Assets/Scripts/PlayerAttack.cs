@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
     public Object areaPrefab;
     QTFramework QTFramework;
 
-    public float movementSpeed = 1.0f;
+    public float movementSpeed = 5.0f;
 
     public void RunQuickTime(string attack)
     {
@@ -97,74 +97,64 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         //checks if an attack button has been pressed
-        if (!attacking)
+        if (!attacking && !string.IsNullOrEmpty(attackSelected) && Input.GetMouseButtonDown(0))
         {
-            if (!string.IsNullOrEmpty(attackSelected))
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Enemy")
             {
-                //checks if you click on an enemy
-                if (Input.GetMouseButtonDown(0))
+                attacking = true;
+                //records where the player is originally, to return to after attacking
+                start_point = transform.position;
+                //finds where the player will have to move to reach the enemy
+                destination = hit.transform.position;
+                if (destination.x > transform.position.x)
                 {
-                    RaycastHit hit;
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        if (hit.transform.tag == "Enemy")
-                        {
-                            attacking = true;
-                            //records where the player is originally, to return to after attacking
-                            start_point = transform.position;
-                            //finds where the player will have to move to reach the enemy
-                            destination = hit.transform.position;
-                            if (destination.x > transform.position.x)
-                            {
-                                destination.x -= 1;
-                            }
-                            else
-                            {
-                                destination.x += 1;
-                            }
-                            //sets the player as moving towards an enemy
-                            going = true;
-                        }
-
-                    }
+                    destination.x -= 1;
                 }
+                else
+                {
+                    destination.x += 1;
+                }
+                //sets the player as moving towards an enemy
+                going = true;
+
             }
         }
 
-                if (going)
-                {
-                    //moves the player towards the selected enemy
-                    transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed * Time.deltaTime);
-                    //checks if the player has reached the enemy
-                    if (transform.position == destination)
-                    {
-                        //stops the player moving
-                        going = false;
-                        //starts the quicktime event
-                        RunQuickTime(attackSelected);
-                    }
-                }
-                // QTResult will only be less than two once the quick time event has finished and returned the results
-                else if (rootUI.GetComponent<BattleMenuEvent>().QTResult < 2)
-                {
-                    // Should be replaced by a function call
-                    returning = true;
-                }
-                if (returning)
-                {
-                    //moves the player towards where it started
-                    transform.position = Vector3.MoveTowards(transform.position, start_point, movementSpeed * Time.deltaTime);
-                    //checks if the player has arrived back
-                    if (transform.position == start_point)
-                    {
-                        //stops the attack sequence, allowing another attack
-                        //Battle_UI.GetComponent<BattleMenuEvent>().attacking = false;
-                        //resets the attack sequence
-                        attacking = false;
-                        returning = false;
-                    }
-                }
+        if (going)
+        {
+            //moves the player towards the selected enemy
+            transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed * Time.deltaTime);
+            //checks if the player has reached the enemy
+            if (transform.position == destination)
+            {
+                //stops the player moving
+                going = false;
+                //starts the quicktime event
+                RunQuickTime(attackSelected);
             }
-        
+        }
+        // QTResult will only be less than two once the quick time event has finished and returned the results
+        else if (rootUI.GetComponent<BattleMenuEvent>().QTResult < 2)
+        {
+            // Should be replaced by a function call
+            returning = true;
+        }
+
+        if (returning)
+        {
+            //moves the player towards where it started
+            transform.position = Vector3.MoveTowards(transform.position, start_point, movementSpeed * Time.deltaTime);
+            //checks if the player has arrived back
+            if (transform.position == start_point)
+            {
+                //stops the attack sequence, allowing another attack
+                //Battle_UI.GetComponent<BattleMenuEvent>().attacking = false;
+                //resets the attack sequence
+                attacking = false;
+                returning = false;
+            }
+        }        
     }
+}
