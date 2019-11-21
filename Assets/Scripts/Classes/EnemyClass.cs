@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyClass : MonoBehaviour
+public class EnemyClass
 {
     // Basic information
     public string enemyName;
@@ -96,19 +96,14 @@ public class EnemyClass : MonoBehaviour
     public void TakeDamage(int hitDamage)
     {
         health -= hitDamage;
-        // 'Kills' enemy when health reaches 0
-        if (health <= 0)
-        {
-            Die();
-        }
     }
 
     // All procudures following death
-    private void Die()
+    private void Die(GameObject enemy)
     {
         // Gives moneyEarned value to player
         gameController.money += moneyEarned;
         Debug.Log(enemyName + " has died");
-        Object.Destroy(this);
+        Object.Destroy(enemy);
     }
 }
