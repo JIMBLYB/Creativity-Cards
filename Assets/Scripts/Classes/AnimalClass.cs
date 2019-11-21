@@ -10,7 +10,7 @@ public class AnimalClass : MonoBehaviour
     // Variables for use during battle
     public int level;
     public int damage;
-    private int levelUpIncrease;
+    private int levelUpIncrease = 2;
     public float hitChance;
     public float cooldownDuration;
 
@@ -18,7 +18,7 @@ public class AnimalClass : MonoBehaviour
     public bool unlocked;
     public int buyPrice;
     public int currentPrice;
-    private float priceMultiplier;
+    private float priceMultiplier = 2;
 
     public void Pricing()
     {

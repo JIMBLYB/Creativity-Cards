@@ -22,7 +22,7 @@ public class MenuButtons : MonoBehaviour {
     // It is intneded to be run from a UI component.
     public void PressQuitButton()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
 
         Application.Quit();
 
