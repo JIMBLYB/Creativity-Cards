@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
 
         if (transform.position == player.transform.position)
         {
-            movedTo = false;
+            movedTo = true;
             enemy.DecideAttack();
         }
 
