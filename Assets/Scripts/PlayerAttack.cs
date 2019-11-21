@@ -151,7 +151,6 @@ public class PlayerAttack : MonoBehaviour
             if (transform.position == originalPos)
             {
                 //stops the attack sequence, allowing another attack
-                //Battle_UI.GetComponent<BattleMenuEvent>().attacking = false;
                 //resets the attack sequence
                 attacking = false;
                 returning = false;
