@@ -29,7 +29,7 @@ public class EnemyClass
        health = 1;
        damage = 1;
        heavyModifier = 1.5f;
-       movementSpeed = 1;
+       movementSpeed = 5;
     }
     public EnemyClass(int hp, int dmg)
     {

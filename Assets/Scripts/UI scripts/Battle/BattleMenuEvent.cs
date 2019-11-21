@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 // Code is designed to sit in the 'Canvas - AttackScreen' in 'BattleScene' scene.
 public class BattleMenuEvent : MonoBehaviour
 {
@@ -18,7 +19,11 @@ public class BattleMenuEvent : MonoBehaviour
     private bool playersTurn;
     [SerializeField]
     private bool enemiesStartedAttack = false;
-    private GameObject[] enemies;
+    // Lists to track all current enemies in the scene
+    private List<EnemyController> enemyControllers;
+    private List<GameObject> enemies;
+    // Bool to track whether all enemies have been killed.
+    private bool endScene = false;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -46,6 +51,19 @@ public class BattleMenuEvent : MonoBehaviour
         playerAttack.attackSelected = elements[0];
         }
 
+    private void GetEnemyControllers()
+    {
+        enemyControllers = new List<EnemyController>();
+        enemies = new List<GameObject>();
+
+        GameObject[] tempEnemyStore = GameObject.FindGameObjectsWithTag("Enemy");
+        
+        for (int i = 0; i < tempEnemyStore.Length; i++)
+        {
+            enemyControllers.Add(tempEnemyStore[i].GetComponent<EnemyController>());
+            enemies.Add(tempEnemyStore[i]);
+        }
+    }
 
     void Start()
     {
@@ -53,64 +71,87 @@ public class BattleMenuEvent : MonoBehaviour
         // Gets the player gameObject and PlayerAttack script for later use
         player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         // Allows the player to go first.
         playersTurn = true;
+        GetEnemyControllers();
     }
 
     void Update()
     {
-        // QTFramework will only ever return a value between 0 and 1.
-        // If a value has been returned by QTFramework prints QTResult.
-        // This action is placeholder.
-        // QTResult is then reset to two so this doesn't trigger continuously
-        if (playersTurn)
+        if (!endScene)
         {
-            playerAttack.canAttack = true;
-            
-            if (QTResult <= 1)
+            // QTFramework will only ever return a value between 0 and 1.
+            // If a value has been returned by QTFramework prints QTResult.
+            // This action is placeholder.
+            // QTResult is then reset to two so this doesn't trigger continuously
+            if (playersTurn)
             {
-                //Debug.Log(QTResult);
-
-                // Targeted enemy takes 10 * QTResult amount of damage.
-                // This is placeholder, each attack should have its own damage values.
-                targetedEnemy.GetComponent<EnemyController>().enemy.health -= (int)(10 * QTResult);
-                // Prints enemies current health after taking damage.
-                Debug.Log(targetedEnemy.GetComponent<EnemyController>().enemy.health);
-                targetedEnemy = null;
-                // Marks the players turn as over.
-                playersTurn = false;
-                QTResult = 2;
-                playerAttack.canAttack = false;
-            }
-        } 
-        else 
-        {
-            if (!enemiesStartedAttack)
-            {
-                // Allows every enemy in the scene to begin their attacks.
-                for (int i = 0; i < enemies.Length; i++)
+                playerAttack.canAttack = true;
+                
+                if (QTResult <= 1)
                 {
-                    enemies[i].GetComponent<EnemyController>().canAttack = true;
+                    //Debug.Log(QTResult);
+
+                    // Targeted enemy takes 10 * QTResult amount of damage.
+                    // This is placeholder, each attack should have its own damage values.
+                    targetedEnemy.GetComponent<EnemyController>().enemy.health -= (int)(10 * QTResult);
+                    // Prints enemies current health after taking damage.
+                    Debug.Log(targetedEnemy.GetComponent<EnemyController>().enemy.health);
+                    targetedEnemy = null;
+                    // Marks the players turn as over.
+                    playersTurn = false;
+                    QTResult = 2;
+                    playerAttack.canAttack = false;
                 }
-                enemiesStartedAttack = true;
-            }
+            } 
             else
             {
-                // Assumes all enemies attacks have finished, then checks this.
-                // If any enemy hasn't finished their attacks, reverts the value of playerTurn and enemiesStartedAttack.
-                playersTurn = true;
-                enemiesStartedAttack = false;
-                for (int i = 0; i < enemies.Length; i++)
+                if (!enemiesStartedAttack)
                 {
-                    if (enemies[i].GetComponent<EnemyController>().canAttack)
+                    // Allows every enemy in the scene to begin their attacks.
+                    for (int i = 0; i < enemyControllers.Count; i++)
                     {
-                        playersTurn = false;
-                        enemiesStartedAttack = true;
-                        break;
+                        if (enemyControllers[i].enemy.health <= 0)
+                        {
+                            Destroy(enemies[i]);
+                            enemies.RemoveAt(i);
+                            enemyControllers.RemoveAt(i);
+                        }
+                        else
+                        {
+                            enemyControllers[i].canAttack = true;
+                        }
                     }
-                } 
-            }  
-        }        
+                    if (enemies.Count > 0)
+                    {
+                        enemiesStartedAttack = true;
+                    }
+                    else
+                    {
+                        endScene = true;
+                    }
+                }
+                else
+                {
+                    // Assumes all enemies attacks have finished, then checks this.
+                    // If any enemy hasn't finished their attacks, reverts the value of playerTurn and enemiesStartedAttack.
+                    playersTurn = true;
+                    enemiesStartedAttack = false;
+                    for (int i = 0; i < enemyControllers.Count; i++)
+                    {
+                        if (enemyControllers[i].canAttack)
+                        {
+                            playersTurn = false;
+                            enemiesStartedAttack = true;
+                            break;
+                        }
+                    } 
+                }  
+            }        
+        }
+        else
+        {
+            Debug.Log("Enemies Killed");
+        }
     }
 }
