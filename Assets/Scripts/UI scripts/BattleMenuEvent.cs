@@ -7,6 +7,12 @@ using UnityEngine.UI;
 public class BattleMenuEvent : MonoBehaviour
 {
     public Object areaPrefab;
+    private bool attacking;
+    private GameObject targeted_enemy;
+    private Vector3 start_point;
+    private Vector3 destination;
+    private bool going;
+    private bool arrived;
 
     // Float to hold how well the player did at the quick time event
     // Initialises to two to mark that it hasn't been set by QTFramework. 
@@ -23,63 +29,69 @@ public class BattleMenuEvent : MonoBehaviour
 
         QTFramework QTFramework = QTArea.GetComponentInChildren<QTFramework>();
 
-        // Checks which attack was selected and then sets the quick time button sequence accordingly.
-        // Currently uses placeholder sequences
-        string selectedAttack = button.GetComponentInChildren<Text>().text;
-        switch (selectedAttack)
-        {
-            case "Light":
+            // Checks which attack was selected and then sets the quick time button sequence accordingly.
+            // Currently uses placeholder sequences
+            string selectedAttack = button.GetComponentInChildren<Text>().text;
+            if (arrived)
             {
-                quickTimeKeys = new List<KeyCode>
+                switch (selectedAttack)
                 {
-                    KeyCode.L, 
-                    KeyCode.I, 
-                    KeyCode.G, 
-                    KeyCode.H, 
-                    KeyCode.T
-                };
-                break;
+                    case "Light":
+                    {
+                        quickTimeKeys = new List<KeyCode>
+                        {
+                            KeyCode.L, 
+                            KeyCode.I, 
+                            KeyCode.G, 
+                            KeyCode.H, 
+                            KeyCode.T
+                        };
+                        break;
+                    }
+                    case "Medium":
+                    {
+                        quickTimeKeys = new List<KeyCode>
+                        {
+                            KeyCode.M, 
+                            KeyCode.E, 
+                            KeyCode.D, 
+                            KeyCode.I, 
+                            KeyCode.U
+                        };
+                        break;
+                    }
+                    case "Heavy":
+                    {
+                        quickTimeKeys = new List<KeyCode>
+                        {
+                            KeyCode.H, 
+                            KeyCode.E, 
+                            KeyCode.A, 
+                            KeyCode.V, 
+                            KeyCode.Y
+                        };
+                        break;
+                    }
+                    case "Sheep":
+                    {
+                        quickTimeKeys = new List<KeyCode>
+                        {
+                            KeyCode.S, 
+                            KeyCode.H, 
+                            KeyCode.E, 
+                            KeyCode.E, 
+                            KeyCode.P
+                        };
+                        break;
+                    }
+                    default:
+                        Debug.Log("ERROR: Unkown attack");
+                        break;
+                }
+                // Sends the selected sequence to the quick time area
+                QTFramework.sequence = quickTimeKeys;
+                arrived = false;
             }
-            case "Medium":
-            {
-                quickTimeKeys = new List<KeyCode>
-                {
-                    KeyCode.M, 
-                    KeyCode.E, 
-                    KeyCode.D, 
-                    KeyCode.I, 
-                    KeyCode.U
-                };
-                break;
-            }
-            case "Heavy":
-            {
-                quickTimeKeys = new List<KeyCode>
-                {
-                    KeyCode.H, 
-                    KeyCode.E, 
-                    KeyCode.A, 
-                    KeyCode.V, 
-                    KeyCode.Y
-                };
-                break;
-            }
-            case "Sheep":
-            {
-                quickTimeKeys = new List<KeyCode>
-                {
-                    KeyCode.S, 
-                    KeyCode.H, 
-                    KeyCode.E, 
-                    KeyCode.E, 
-                    KeyCode.P
-                };
-                break;
-            }
-            default:
-                Debug.Log("ERROR: Unkown attack");
-                break;
-        }
 
         // Sends the selected sequence to the quick time area
         QTFramework.sequence = quickTimeKeys;
@@ -103,6 +115,30 @@ public class BattleMenuEvent : MonoBehaviour
         }
     }
 
+    private void Target_Select()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.tag == "Enemy")
+            {
+                targeted_enemy = hit.transform.gameObject;
+                start_point = transform.position;
+                destination = hit.transform.position - transform.position;
+                if (hit.transform.position.x > transform.position.x)
+                {
+                    destination.x -= 3.1f;
+                }
+                else
+                {
+                    destination.x -= 0.1f;
+                }
+                going = true;
+            }
+        }
+    }
+
     void Start()
     {
         UpdateAttackSlots();
@@ -118,6 +154,27 @@ public class BattleMenuEvent : MonoBehaviour
         {
             Debug.Log(QTResult);
             QTResult = 2;
+        }
+        
+        if (attacking)
+        {
+            if (going)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, destination, 0.3f);
+                if (transform.position == destination)
+                {
+                    going = false;
+                    arrived = true;
+                }
+            }
+            else if (!arrived)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, start_point, 0.3f);
+                if (transform.position == start_point)
+                {
+                    attacking = false;
+                }
+            }
         }
     }
     
