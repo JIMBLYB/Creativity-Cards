@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        // Will only attack if it's been given permission by 'BattleMenuEvent' script.
         if (canAttack)
         {
             doAttack();
@@ -30,22 +31,23 @@ public class EnemyController : MonoBehaviour
 
     public void doAttack()
     {
+        // If the enemy hasn't completed its move to the player then moves closer.
         if (!movedTo)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemy.movementSpeed * Time.deltaTime);
         }
-
+        // Once the enemy has reached the player they do their attack.
         if (transform.position == player.transform.position)
         {
             movedTo = true;
             enemy.DecideAttack();
         }
-
+        // Once the enemy has finished the attack it returns to its starting position.
         if (enemy.finishedAttack)
         {
             transform.position = Vector3.MoveTowards(transform.position, originalPos, enemy.movementSpeed * Time.deltaTime);
         }
-
+        // Once it reaches its start position it resets bool variables.
         if (transform.position == originalPos)
         {
             canAttack = false;
