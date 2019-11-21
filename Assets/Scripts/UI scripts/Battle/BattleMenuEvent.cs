@@ -41,8 +41,9 @@ public class BattleMenuEvent : MonoBehaviour
 
     public void OnAttackSelect(Button button)
         {
-            // Sets the selected attack in PlayerAttackScript to the button pressed
-            playerAttack.attackSelected = button.GetComponentInChildren<Text>().text;
+        // Sets the selected attack in PlayerAttackScript to the button pressed
+        string[] elements = button.GetComponentInChildren<Text>().text.Split(' ');
+        playerAttack.attackSelected = elements[0];
         }
 
 
