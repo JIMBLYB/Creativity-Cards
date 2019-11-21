@@ -12,6 +12,7 @@ public class EnemyClass : MonoBehaviour
     public int health;
     public int damage;
     public float heavyModifier;
+    public int movementSpeed;
 
     // What happens when this enemy dies
     public int moneyEarned;

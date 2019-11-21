@@ -16,6 +16,6 @@ public class EnemyController : MonoBehaviour
 
     public void doAttack()
     {
-        Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
+        Vector3.MoveTowards(transform.position, player.transform.position, enemy.movementSpeed * Time.deltaTime);
     }
 }
