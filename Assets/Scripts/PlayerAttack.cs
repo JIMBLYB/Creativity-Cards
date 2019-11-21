@@ -141,8 +141,13 @@ public class PlayerAttack : MonoBehaviour
                     RunQuickTime(attackSelected);
                 }
             }
-            //if the quick time event has finished
-            else if (returning)
+            // QTResult will only be less than two once the quick time event has finished and returned the results
+            else if (rootUI.GetComponent<BattleMenuEvent>().QTResult < 2)
+            {
+                // Should be replaced by a function call
+                returning = true;
+            } 
+            if (returning)
             {
                 //moves the player towards where it started
                 transform.position = Vector3.MoveTowards(transform.position, start_point, 0.2f);
