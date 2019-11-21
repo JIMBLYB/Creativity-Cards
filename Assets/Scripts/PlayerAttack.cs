@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private Vector3 destination;
-    private Vector3 start_point;
+    private Vector3 targetedEnemy;
+    private Vector3 originalPos;
     public string attackSelected = string.Empty;
     private bool going = false;
     public bool returning = false;
@@ -105,16 +105,16 @@ public class PlayerAttack : MonoBehaviour
             {
                 attacking = true;
                 //records where the player is originally, to return to after attacking
-                start_point = transform.position;
+                originalPos = transform.position;
                 //finds where the player will have to move to reach the enemy
-                destination = hit.transform.position;
-                if (destination.x > transform.position.x)
+                targetedEnemy = hit.transform.position;
+                if (targetedEnemy.x > transform.position.x)
                 {
-                    destination.x -= 1;
+                    targetedEnemy.x -= 1;
                 }
                 else
                 {
-                    destination.x += 1;
+                    targetedEnemy.x += 1;
                 }
                 //sets the player as moving towards an enemy
                 going = true;
@@ -125,9 +125,9 @@ public class PlayerAttack : MonoBehaviour
         if (going)
         {
             //moves the player towards the selected enemy
-            transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetedEnemy, movementSpeed * Time.deltaTime);
             //checks if the player has reached the enemy
-            if (transform.position == destination)
+            if (transform.position == targetedEnemy)
             {
                 //stops the player moving
                 going = false;
@@ -145,9 +145,9 @@ public class PlayerAttack : MonoBehaviour
         if (returning)
         {
             //moves the player towards where it started
-            transform.position = Vector3.MoveTowards(transform.position, start_point, movementSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, originalPos, movementSpeed * Time.deltaTime);
             //checks if the player has arrived back
-            if (transform.position == start_point)
+            if (transform.position == originalPos)
             {
                 //stops the attack sequence, allowing another attack
                 //Battle_UI.GetComponent<BattleMenuEvent>().attacking = false;
