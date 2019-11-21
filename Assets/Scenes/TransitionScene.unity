@@ -255,6 +255,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 888f1088871722649961cdce62ca9bf3, type: 3}
+--- !u!1 &301802634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 515d8c50cb5c44247abf0051563b8bfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 764365283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &518361099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,8 +487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100.2}
-  m_SizeDelta: {x: 291.18, y: 48.4}
+  m_AnchoredPosition: {x: 0, y: 88}
+  m_SizeDelta: {x: 603.32, y: 64.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &862893564
 MonoBehaviour:
@@ -506,10 +512,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 34b418de9b2625d4dafee5091ee2cdbe, type: 3}
-    m_FontSize: 23
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -798,6 +804,7 @@ MonoBehaviour:
   health: 0
   marrowHealth: 0
   dayNum: 0
+  maxRounds: 0
   sheepLvl: 0
   cowLvl: 0
   chickenLvl: 0
@@ -810,6 +817,7 @@ MonoBehaviour:
   chickLock: 0
   pigLock: 0
   gooseLock: 0
+  battleEnd: 0
   selectedAttack:
   - 
   - 
@@ -827,7 +835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1282539256
 PrefabInstance:
@@ -1269,7 +1277,7 @@ Transform:
   m_LocalScale: {x: 120.187195, y: 65.408, z: 65.408}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 180}
 --- !u!1 &1721549904
 GameObject:
@@ -1434,6 +1442,8 @@ GameObject:
   - component: {fileID: 1775035421}
   - component: {fileID: 1775035420}
   - component: {fileID: 1775035419}
+  - component: {fileID: 1775035416}
+  - component: {fileID: 1775035417}
   m_Layer: 5
   m_Name: Screen - TransitionScene
   m_TagString: Untagged
@@ -1441,6 +1451,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1775035416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775035415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56559413b09f10489e287715b2836b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loseMarrow: {fileID: 806866087}
+  winMarrow: {fileID: 982643763}
+  regMarrow: {fileID: 301802634}
+  dayTitle: {fileID: 1039354985}
+  marrowHealth: {fileID: 2002594940}
+  marrowTitle: {fileID: 862893562}
+  GCInfo: {fileID: 0}
+--- !u!114 &1775035417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775035415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3360a4b365d15f649853eec0c1adbe8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GCInfo: {fileID: 0}
 --- !u!114 &1775035419
 MonoBehaviour:
   m_ObjectHideFlags: 0

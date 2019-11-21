@@ -9,8 +9,10 @@ public class GameController : MonoBehaviour
     public int health;
     public int marrowHealth;
     public int dayNum;
+    public int maxRounds;
     public int sheepLvl, cowLvl, chickenLvl, chickLvl, pigLvl, gooseLvl;
     public bool sheepLock, cowLock, chickenLock, chickLock, pigLock, gooseLock;
+    public bool battleEnd;
 
     // String array to store all four of the currently selected attacks
     public string[] selectedAttack = new string[4];
@@ -30,6 +32,12 @@ public class GameController : MonoBehaviour
 
         //Resets Day num
         dayNum = 1;
+
+        //Maximum game rounds
+        maxRounds = 5;
+
+        //Resets battle end (detecting when to go to transition scene)
+        battleEnd = false;
 
         //Sets animal starting level
         sheepLvl = 1;
