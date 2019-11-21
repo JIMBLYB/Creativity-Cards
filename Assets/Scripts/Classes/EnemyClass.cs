@@ -63,7 +63,7 @@ public class EnemyClass : MonoBehaviour
     }
 
     // "Intelligently" chooses which type of attack to perform
-    public void DecidingAttack()
+    public void DecideAttack()
     {
         // Randomly chooses based on bool value
         switch (Random.value > 0.5f)
@@ -103,7 +103,7 @@ public class EnemyClass : MonoBehaviour
     }
 
     // All procudures following death
-    public void Die()
+    private void Die()
     {
         // Gives moneyEarned value to player
         gameController.money += moneyEarned;
