@@ -96,15 +96,19 @@ public class PlayerAttack : MonoBehaviour
         //checks if an attack button has been pressed
         if (!string.IsNullOrEmpty(attackSelected))
         {
+            Debug.Log("Attack Selected");
             //checks if you click on an enemy
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("Mouse Down");
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))
                 {
+                    Debug.Log("Hit Object");
                     if (hit.transform.tag == "Enemy")
                     {
+                        Debug.Log("Object was enemy");
                     //records where the player is originally, to return to after attacking
                         start_point = transform.position;
                     //finds where the player will have to move to reach the enemy
