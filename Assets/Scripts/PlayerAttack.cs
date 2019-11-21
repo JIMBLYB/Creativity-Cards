@@ -93,6 +93,8 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
+        // Gets the canvas all other canvas' are children of and stores it as rootUI.
+        // Gets the BattleMenuEvent component from the rootUI.
         rootUI = GameObject.FindWithTag("RootUI");
         battleMenuEvent = rootUI.GetComponent<BattleMenuEvent>();
     }

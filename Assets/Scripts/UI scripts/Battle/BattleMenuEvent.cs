@@ -61,7 +61,10 @@ public class BattleMenuEvent : MonoBehaviour
         {
             Debug.Log(QTResult);
 
+            // Targeted enemy takes 10 * QTResult amount of damage.
+            // This is placeholder, each attack should have its own damage values.
             targetedEnemy.GetComponent<EnemyController>().enemy.health -= (int)(10 * QTResult);
+            // Prints enemies current health after taking damage.
             Debug.Log(targetedEnemy.GetComponent<EnemyController>().enemy.health);
             targetedEnemy = null;
             QTResult = 2;
