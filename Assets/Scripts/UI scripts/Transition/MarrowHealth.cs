@@ -9,6 +9,7 @@ public class MarrowHealth : MonoBehaviour
     public GameObject loseMarrow;
     public GameObject winMarrow;
     public GameObject regMarrow;
+    public GameObject menuButton, quitButton, nextButton;
     public GameObject dayTitle, marrowHealth, marrowTitle;
     private bool dayCycle, healthPerCycle;
     public GameController GCInfo;
@@ -31,6 +32,9 @@ public class MarrowHealth : MonoBehaviour
             regMarrow.SetActive(false);
             dayTitle.GetComponent<Text>().text = "You Lost!".ToString();
             marrowTitle.GetComponent<Text>().text = "Your marrow was destroyed! Better luck next year.".ToString();
+            nextButton.SetActive(false);
+            menuButton.SetActive(true);
+            quitButton.SetActive(true);
         }
 
         //tests to see if the game has reached max rounds
@@ -41,6 +45,9 @@ public class MarrowHealth : MonoBehaviour
             regMarrow.SetActive(false);
             dayTitle.GetComponent<Text>().text = "You Won!".ToString();
             marrowTitle.GetComponent<Text>().text = "Congrats! Your marrow won first place!".ToString();
+            nextButton.SetActive(false);
+            menuButton.SetActive(true);
+            quitButton.SetActive(true);
         }
 
         //if day cycle is true, updates the day count, if conditions are met for it to be false it means that the end of the game was reached
