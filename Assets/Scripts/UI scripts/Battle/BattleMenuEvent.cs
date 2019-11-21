@@ -4,11 +4,9 @@ using UnityEngine.UI;
 // Code is designed to sit in the 'Canvas - AttackScreen' in 'BattleScene' scene.
 public class BattleMenuEvent : MonoBehaviour
 {
-    public bool attacking = false;
     private GameObject player;
     private PlayerAttack playerAttack;
     public Button attackSelected;
-    private bool quickTime = false;
     // Float to hold how well the player did at the quick time event
     // Initialises to two to mark that it hasn't been set by QTFramework. 
     // QTFramework will only ever return a value between 0 and 1.
