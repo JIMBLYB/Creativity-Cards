@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 // Code is designed to sit in the 'Canvas - AttackScreen' in 'BattleScene' scene.
