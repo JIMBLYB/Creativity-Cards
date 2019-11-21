@@ -152,6 +152,7 @@ public class BattleMenuEvent : MonoBehaviour
         else
         {
             Debug.Log("Enemies Killed");
+            SceneManager.LoadScene(5);
         }
     }
 }
