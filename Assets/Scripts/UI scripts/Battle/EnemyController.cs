@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         originalPos = transform.position;
+        enemy.gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
     void Update()

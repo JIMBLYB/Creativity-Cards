@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public float money;
-    public int maxHealth;
+    private int maxHealth = 100;
     public int health;
     public int marrowHealth;
     public int dayNum;
@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     public string[] selectedAttack = new string[4];
 
     // Initialisation of variables
-    public void Awake()
+    void Awake()
     {
         // Keeps object persistant across scenes
         DontDestroyOnLoad(this);

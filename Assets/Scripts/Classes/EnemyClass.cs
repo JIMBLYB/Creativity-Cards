@@ -19,7 +19,7 @@ public class EnemyClass : MonoBehaviour
     // Add particle effect if needed
 
     // References to other object/scripts
-    private GameController gameController;
+    public GameController gameController;
     // Bool to show whether the enemy has finished their attack
     public bool finishedAttack = false;
 
@@ -59,13 +59,6 @@ public class EnemyClass : MonoBehaviour
         heavyModifier = hevMod;
     }
 
-    // Any initialization
-    void Awake()
-    {
-        name = enemyName;
-        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-    }
-
     // "Intelligently" chooses which type of attack to perform
     public void DecideAttack()
     {
@@ -87,7 +80,7 @@ public class EnemyClass : MonoBehaviour
     // Light attack dealing base damage
     public void LightAttack()
     {
-        //gameController.health -= damage;
+        gameController.health -= damage;
         Debug.Log("Light");
     }
 
@@ -95,7 +88,7 @@ public class EnemyClass : MonoBehaviour
     // (Default modifier = 1.5)
     public void HeavyAttack()
     {
-        //gameController.health -= Mathf.FloorToInt(damage * heavyModifier);
+        gameController.health -= Mathf.FloorToInt(damage * heavyModifier);
         Debug.Log("Heavy");
     }
 
