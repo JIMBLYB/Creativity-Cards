@@ -313,7 +313,7 @@ PrefabInstance:
     - target: {fileID: 8266598714285318218, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8266598714285318218, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
         type: 3}
@@ -425,7 +425,7 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 406399862}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &619490581
+--- !u!1 &1453089777
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,9 +433,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 619490582}
-  - component: {fileID: 619490584}
-  - component: {fileID: 619490583}
+  - component: {fileID: 1453089778}
+  - component: {fileID: 1453089780}
+  - component: {fileID: 1453089779}
   m_Layer: 5
   m_Name: Help Text
   m_TagString: Untagged
@@ -443,13 +443,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &619490582
+--- !u!224 &1453089778
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619490581}
+  m_GameObject: {fileID: 1453089777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
@@ -462,13 +462,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 175.70001}
   m_SizeDelta: {x: 192.94, y: 48.4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &619490583
+--- !u!114 &1453089779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619490581}
+  m_GameObject: {fileID: 1453089777}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -483,8 +483,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bc2a29f69e0432b40a1788a9cf7988bb, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 34b418de9b2625d4dafee5091ee2cdbe, type: 3}
+    m_FontSize: 31
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -496,13 +496,13 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Help
---- !u!222 &619490584
+--- !u!222 &1453089780
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619490581}
+  m_GameObject: {fileID: 1453089777}
   m_CullTransparentMesh: 0
 --- !u!1001 &1553292848
 PrefabInstance:
@@ -665,7 +665,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 619490582}
+  - {fileID: 1453089778}
   - {fileID: 406399863}
   m_Father: {fileID: 0}
   m_RootOrder: 3
