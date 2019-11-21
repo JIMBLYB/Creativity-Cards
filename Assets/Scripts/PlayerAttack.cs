@@ -9,8 +9,11 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 originalPos;
     private Vector3 targetedPos;
     public string attackSelected = string.Empty;
+    [SerializeField]
     private bool going = false;
-    public bool returning = false;
+    [SerializeField]
+    private bool returning = false;
+    [SerializeField]
     private bool attacking;
     private GameObject rootUI;
     public Object areaPrefab;
@@ -162,6 +165,7 @@ public class PlayerAttack : MonoBehaviour
                 //resets the attack sequence
                 attacking = false;
                 returning = false;
+                canAttack = false;
             }
         }        
     }

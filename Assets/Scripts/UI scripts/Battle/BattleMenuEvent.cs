@@ -14,7 +14,9 @@ public class BattleMenuEvent : MonoBehaviour
     // Stores the enemy the player is currently attacking
     public GameObject targetedEnemy = null;
     // A bool to denote whether it is the players turn or the enemies.
-    private bool playersTurn = true;
+    [SerializeField]
+    private bool playersTurn;
+    [SerializeField]
     private bool enemiesStartedAttack = false;
     private GameObject[] enemies;
 
@@ -52,7 +54,8 @@ public class BattleMenuEvent : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerAttack = player.GetComponent<PlayerAttack>();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
+        // Allows the player to go first.
+        playersTurn = true;
     }
 
     void Update()
@@ -75,10 +78,10 @@ public class BattleMenuEvent : MonoBehaviour
                 // Prints enemies current health after taking damage.
                 Debug.Log(targetedEnemy.GetComponent<EnemyController>().enemy.health);
                 targetedEnemy = null;
-                QTResult = 2;
                 // Marks the players turn as over.
-                playerAttack.canAttack = false;
                 playersTurn = false;
+                QTResult = 2;
+                playerAttack.canAttack = false;
             }
         } 
         else 

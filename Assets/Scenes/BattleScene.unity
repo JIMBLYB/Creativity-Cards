@@ -168,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 3555895026775545283, guid: d17484535e6bbdb409fe9097651a0e69,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3555895026775545283, guid: d17484535e6bbdb409fe9097651a0e69,
         type: 3}
@@ -518,7 +518,7 @@ PrefabInstance:
     - target: {fileID: 3555895026775545283, guid: d17484535e6bbdb409fe9097651a0e69,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3555895026775545283, guid: d17484535e6bbdb409fe9097651a0e69,
         type: 3}
@@ -942,7 +942,7 @@ PrefabInstance:
     - target: {fileID: 5066479212346091000, guid: ca888f5f4e2ad9944927e06b704a3048,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5066479212346091000, guid: ca888f5f4e2ad9944927e06b704a3048,
         type: 3}
@@ -1310,7 +1310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1156989592
 PrefabInstance:
@@ -1509,10 +1509,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d4f954e8eca1f49b1ce334b59dec77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacking: 0
   attackSelected: {fileID: 0}
   QTResult: 2
   targetedEnemy: {fileID: 0}
+  playersTurn: 1
+  enemiesStartedAttack: 0
 --- !u!114 &1166150306
 MonoBehaviour:
   m_ObjectHideFlags: 0

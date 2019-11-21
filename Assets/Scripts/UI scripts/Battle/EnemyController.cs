@@ -9,9 +9,9 @@ public class EnemyController : MonoBehaviour
     private GameObject player;
     // Variables for controlling enemies actions
     public bool canAttack = false;
-    bool movedTo = false;
-
-    Vector3 originalPos;
+    [SerializeField]
+    private bool movedTo = false;
+    private Vector3 originalPos;
     
     void Start() 
     {
@@ -52,6 +52,7 @@ public class EnemyController : MonoBehaviour
         {
             canAttack = false;
             movedTo = false;
+            enemy.finishedAttack = false;
         }
         
     }
