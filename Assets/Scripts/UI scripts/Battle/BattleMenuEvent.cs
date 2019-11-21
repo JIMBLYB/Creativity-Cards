@@ -33,10 +33,6 @@ public class BattleMenuEvent : MonoBehaviour
         {
             selectedAttacks[i].text = gameController.selectedAttack[i];
         }
-
-        // Gets the player gameObject and PlayerAttack script for later use
-        player = GameObject.FindWithTag("Player");
-        playerAttack = player.GetComponent<PlayerAttack>();
     }
 
     public void OnAttackSelect(Button button)
@@ -50,6 +46,9 @@ public class BattleMenuEvent : MonoBehaviour
     void Start()
     {
         UpdateAttackSlots();
+        // Gets the player gameObject and PlayerAttack script for later use
+        player = GameObject.FindWithTag("Player");
+        playerAttack = player.GetComponent<PlayerAttack>();
     }
 
     void Update()
