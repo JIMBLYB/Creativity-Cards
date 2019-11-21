@@ -20,6 +20,8 @@ public class EnemyClass : MonoBehaviour
 
     // References to other object/scripts
     private GameController gameController;
+    // Bool to show whether the enemy has finished their attack
+    public bool finishedAttack = false;
 
     // Constructors for varying amounts of inputs
     public EnemyClass()
@@ -27,6 +29,7 @@ public class EnemyClass : MonoBehaviour
        health = 1;
        damage = 1;
        heavyModifier = 1.5f;
+       movementSpeed = 1;
     }
     public EnemyClass(int hp, int dmg)
     {
@@ -57,7 +60,7 @@ public class EnemyClass : MonoBehaviour
     }
 
     // Any initialization
-    public virtual void Awake()
+    void Awake()
     {
         name = enemyName;
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
@@ -77,19 +80,23 @@ public class EnemyClass : MonoBehaviour
                 HeavyAttack();
                 break;
         }
+
+        finishedAttack = true;
     }
 
     // Light attack dealing base damage
     public void LightAttack()
     {
-        gameController.health -= damage;
+        //gameController.health -= damage;
+        Debug.Log("Light");
     }
 
     // Heavy attack dealing a damage multiplicative of the heavy modifier
     // (Default modifier = 1.5)
     public void HeavyAttack()
     {
-        gameController.health -= Mathf.FloorToInt(damage * heavyModifier);
+        //gameController.health -= Mathf.FloorToInt(damage * heavyModifier);
+        Debug.Log("Heavy");
     }
 
     // Removes health based on damage
