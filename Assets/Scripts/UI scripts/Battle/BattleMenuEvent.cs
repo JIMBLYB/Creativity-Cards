@@ -13,6 +13,8 @@ public class BattleMenuEvent : MonoBehaviour
     public float QTResult = 2;
     // Stores the enemy the player is currently attacking
     public GameObject targetedEnemy = null;
+    // A bool to denote whether it is the players turn or the enemies.
+    private bool playersTurn = true;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -55,17 +57,26 @@ public class BattleMenuEvent : MonoBehaviour
         // If a value has been returned by QTFramework prints QTResult.
         // This action is placeholder.
         // QTResult is then reset to two so this doesn't trigger continuously
-        if (QTResult <= 1)
+        if (playersTurn)
         {
-            Debug.Log(QTResult);
+            playerAttack.canAttack = true;
+            
+            if (QTResult <= 1)
+            {
+                Debug.Log(QTResult);
 
-            // Targeted enemy takes 10 * QTResult amount of damage.
-            // This is placeholder, each attack should have its own damage values.
-            targetedEnemy.GetComponent<EnemyController>().enemy.health -= (int)(10 * QTResult);
-            // Prints enemies current health after taking damage.
-            Debug.Log(targetedEnemy.GetComponent<EnemyController>().enemy.health);
-            targetedEnemy = null;
-            QTResult = 2;
+                // Targeted enemy takes 10 * QTResult amount of damage.
+                // This is placeholder, each attack should have its own damage values.
+                targetedEnemy.GetComponent<EnemyController>().enemy.health -= (int)(10 * QTResult);
+                // Prints enemies current health after taking damage.
+                Debug.Log(targetedEnemy.GetComponent<EnemyController>().enemy.health);
+                targetedEnemy = null;
+                QTResult = 2;
+                // Marks the players turn as over.
+                playerAttack.canAttack = false;
+                playersTurn = false;
+            }
         }
+        
     }
 }

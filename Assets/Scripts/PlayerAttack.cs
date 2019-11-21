@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
     private BattleMenuEvent battleMenuEvent;
 
     public float movementSpeed = 5.0f;
+    // Bool to denote whether the player can attack or not.
+    public bool canAttack = false;
 
     public void RunQuickTime(string attack)
     {
@@ -102,7 +104,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         //checks if an attack button has been pressed
-        if (!attacking && !string.IsNullOrEmpty(attackSelected) && Input.GetMouseButtonDown(0))
+        if (canAttack && !attacking && !string.IsNullOrEmpty(attackSelected) && Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
