@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BattleMenuEvent : MonoBehaviour
 {
     public Object areaPrefab;
-    public bool attacking;
+    public bool attacking = false;
     public GameObject player;
     public Button selected_button;
     QTFramework QTFramework;
@@ -39,7 +39,6 @@ public class BattleMenuEvent : MonoBehaviour
     void Start()
     {
         UpdateAttackSlots();
-        attacking = false;
     }
 
     //when an attack button is pressed
@@ -69,61 +68,64 @@ public class BattleMenuEvent : MonoBehaviour
             switch (selectedAttack)
             {
                 case "Light":
-                    {
-                        quickTimeKeys = new List<KeyCode>
                 {
-                    KeyCode.L,
-                    KeyCode.I,
-                    KeyCode.G,
-                    KeyCode.H,
-                    KeyCode.T
-                };
-                        break;
-                    }
+                    quickTimeKeys = new List<KeyCode>
+                    {
+                        KeyCode.L,
+                        KeyCode.I,
+                        KeyCode.G,
+                        KeyCode.H,
+                        KeyCode.T
+                    };
+                    break;
+                }
                 case "Medium":
-                    {
-                        quickTimeKeys = new List<KeyCode>
                 {
-                    KeyCode.M,
-                    KeyCode.E,
-                    KeyCode.D,
-                    KeyCode.I,
-                    KeyCode.U
-                };
-                        break;
-                    }
+                    quickTimeKeys = new List<KeyCode>
+                    {
+                        KeyCode.M,
+                        KeyCode.E,
+                        KeyCode.D,
+                        KeyCode.I,
+                        KeyCode.U
+                    };
+                    break;
+                }
                 case "Heavy":
-                    {
-                        quickTimeKeys = new List<KeyCode>
                 {
-                    KeyCode.H,
-                    KeyCode.E,
-                    KeyCode.A,
-                    KeyCode.V,
-                    KeyCode.Y
-                };
-                        break;
-                    }
+                    quickTimeKeys = new List<KeyCode>
+                    {
+                        KeyCode.H,
+                        KeyCode.E,
+                        KeyCode.A,
+                        KeyCode.V,
+                        KeyCode.Y
+                    };
+                    break;
+                }
                 case "Sheep":
-                    {
-                        quickTimeKeys = new List<KeyCode>
                 {
-                    KeyCode.S,
-                    KeyCode.H,
-                    KeyCode.E,
-                    KeyCode.E,
-                    KeyCode.P
-                };
-                        break;
-                    }
+                    quickTimeKeys = new List<KeyCode>
+                    {
+                        KeyCode.S,
+                        KeyCode.H,
+                        KeyCode.E,
+                        KeyCode.E,
+                        KeyCode.P
+                    };
+                    break;
+                }
                 default:
+                {
                     Debug.Log("ERROR: Unkown attack");
                     break;
+                }        
             }
             // Sends the selected sequence to the quick time area
             QTFramework.sequence = quickTimeKeys;
         //the quick time event has ended, tells the player to go back   
     }
+    
     private void Update()
     {
         if (attacking)
