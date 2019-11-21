@@ -99,8 +99,9 @@ public class QTFramework : MonoBehaviour
             // Check to prevent divide by zero errors when empty sequence is sent.
             if (sequenceLength > 0)
             {
-                // Returns the % of keys hit as a decimal to the BattleMenuEvent script
-                float successRate = keysHit / sequenceLength;
+                // Returns the % of keys hit as a decimal to the BattleMenuEvent script.
+                // keysHit and sequenceLength are cast as a float in order to avoid integer division being used.
+                float successRate = (float)keysHit / (float)sequenceLength;
                 transform.parent.parent.GetComponent<BattleMenuEvent>().QTResult = successRate;
             }
             
