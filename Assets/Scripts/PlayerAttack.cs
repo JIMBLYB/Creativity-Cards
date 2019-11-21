@@ -15,6 +15,8 @@ public class PlayerAttack : MonoBehaviour
     public Object areaPrefab;
     QTFramework QTFramework;
 
+    public float movementSpeed = 1.0f;
+
     public void RunQuickTime(string attack)
     {
         
@@ -133,7 +135,7 @@ public class PlayerAttack : MonoBehaviour
                 if (going)
                 {
                     //moves the player towards the selected enemy
-                    transform.position = Vector3.MoveTowards(transform.position, destination, 0.2f);
+                    transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed * Time.deltaTime);
                     //checks if the player has reached the enemy
                     if (transform.position == destination)
                     {
@@ -152,7 +154,7 @@ public class PlayerAttack : MonoBehaviour
                 if (returning)
                 {
                     //moves the player towards where it started
-                    transform.position = Vector3.MoveTowards(transform.position, start_point, 0.2f);
+                    transform.position = Vector3.MoveTowards(transform.position, start_point, movementSpeed * Time.deltaTime);
                     //checks if the player has arrived back
                     if (transform.position == start_point)
                     {
