@@ -13,6 +13,8 @@ public class BattleMenuEvent : MonoBehaviour
     // Initialises to two to mark that it hasn't been set by QTFramework. 
     // QTFramework will only ever return a value between 0 and 1.
     public float QTResult = 2;
+    // Stores the enemy the player is currently attacking
+    public GameObject targetedEnemy = null;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -58,6 +60,10 @@ public class BattleMenuEvent : MonoBehaviour
         if (QTResult <= 1)
         {
             Debug.Log(QTResult);
+
+            targetedEnemy.GetComponent<EnemyController>().enemy.health -= (int)(10 * QTResult);
+            Debug.Log(targetedEnemy.GetComponent<EnemyController>().enemy.health);
+            targetedEnemy = null;
             QTResult = 2;
         }
     }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     // Initialises the enemies stats
-    EnemyClass enemy = new EnemyClass();
-    GameObject player;
+    public EnemyClass enemy = new EnemyClass();
+    private GameObject player;
     // Variables for controlling enemies actions
     public bool canAttack = false;
     bool movedTo = false;

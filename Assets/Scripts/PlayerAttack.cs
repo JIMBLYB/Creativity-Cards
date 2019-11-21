@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private Vector3 targetedEnemy;
+    private GameObject targetedEnemy;
     private Vector3 originalPos;
+    private Vector3 targetedPos;
     public string attackSelected = string.Empty;
     private bool going = false;
     public bool returning = false;
     private bool attacking;
     private GameObject rootUI;
     public Object areaPrefab;
-    QTFramework QTFramework;
+    private QTFramework QTFramework;
+    private BattleMenuEvent battleMenuEvent;
 
     public float movementSpeed = 5.0f;
 
@@ -92,6 +94,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         rootUI = GameObject.FindWithTag("RootUI");
+        battleMenuEvent = rootUI.GetComponent<BattleMenuEvent>();
     }
 
     void Update()
@@ -107,15 +110,16 @@ public class PlayerAttack : MonoBehaviour
                 //records where the player is originally, to return to after attacking
                 originalPos = transform.position;
                 //finds where the player will have to move to reach the enemy
-                targetedEnemy = hit.transform.position;
+                targetedEnemy = hit.transform.gameObject;
+                targetedPos = targetedEnemy.transform.position;
                 // Offsets the target position to stop the player clipping into the enemy.
-                if (targetedEnemy.x > transform.position.x)
+                if (targetedPos.x > transform.position.x)
                 {
-                    targetedEnemy.x -= 1;
+                    targetedPos.x -= 1;
                 }
                 else
                 {
-                    targetedEnemy.x += 1;
+                    targetedPos.x += 1;
                 }
                 //sets the player as moving towards an enemy
                 going = true;
@@ -126,9 +130,9 @@ public class PlayerAttack : MonoBehaviour
         if (going)
         {
             //moves the player towards the selected enemy
-            transform.position = Vector3.MoveTowards(transform.position, targetedEnemy, movementSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetedPos, movementSpeed * Time.deltaTime);
             //checks if the player has reached the enemy
-            if (transform.position == targetedEnemy)
+            if (transform.position == targetedPos)
             {
                 //stops the player moving
                 going = false;
@@ -139,8 +143,8 @@ public class PlayerAttack : MonoBehaviour
         // QTResult will only be less than two once the quick time event has finished and returned the results
         else if (rootUI.GetComponent<BattleMenuEvent>().QTResult < 2)
         {
-            // Should be replaced by a function call
             returning = true;
+            battleMenuEvent.targetedEnemy = targetedEnemy;
         }
 
         if (returning)
