@@ -85,6 +85,7 @@ public class BattleMenuEvent : MonoBehaviour
         {
             if (!enemiesStartedAttack)
             {
+                // Allows every enemy in the scene to begin their attacks.
                 for (int i = 0; i < enemies.Length; i++)
                 {
                     enemies[i].GetComponent<EnemyController>().canAttack = true;
@@ -93,6 +94,8 @@ public class BattleMenuEvent : MonoBehaviour
             }
             else
             {
+                // Assumes all enemies attacks have finished, then checks this.
+                // If any enemy hasn't finished their attacks, reverts the value of playerTurn and enemiesStartedAttack.
                 playersTurn = true;
                 enemiesStartedAttack = false;
                 for (int i = 0; i < enemies.Length; i++)
