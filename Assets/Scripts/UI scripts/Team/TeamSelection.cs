@@ -104,7 +104,7 @@ public class TeamSelection : MonoBehaviour
         }
         else
         {
-            DisplayError();
+            StartCoroutine(DisplayError());
         }
     }
 }
