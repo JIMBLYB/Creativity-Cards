@@ -114,11 +114,14 @@ public class BattleMenuEvent : MonoBehaviour
                     // Allows every enemy in the scene to begin their attacks.
                     for (int i = 0; i < enemyControllers.Count; i++)
                     {
+                        // If the enemy has zero health they are removed from the scene.
                         if (enemyControllers[i].enemy.health <= 0)
                         {
                             Destroy(enemies[i]);
                             enemies.RemoveAt(i);
                             enemyControllers.RemoveAt(i);
+                            // Decrements the counter as enemyControllers.Count has just been decremented.
+                            i--;
                         }
                         else
                         {
