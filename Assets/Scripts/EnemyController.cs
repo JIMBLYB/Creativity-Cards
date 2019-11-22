@@ -12,12 +12,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private bool movedTo = false;
     private Vector3 originalPos;
+    Animator Animator;
     
     void Start() 
     {
         player = GameObject.FindWithTag("Player");
         originalPos = transform.position;
         enemy.gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        Animator = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class EnemyController : MonoBehaviour
         if (canAttack)
         {
             doAttack();
+            Animator.SetTrigger("Attack");
         } 
     }
 
