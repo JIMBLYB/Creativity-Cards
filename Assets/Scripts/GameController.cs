@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
         dayNum = 1;
 
         //Maximum game rounds
-        maxRounds = 5;
+        maxRounds = 3;
 
         //Resets battle end (detecting when to go to transition scene)
         battleEnd = false;

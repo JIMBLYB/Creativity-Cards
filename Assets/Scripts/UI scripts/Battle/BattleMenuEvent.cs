@@ -24,6 +24,8 @@ public class BattleMenuEvent : MonoBehaviour
     private List<GameObject> enemies;
     // Bool to track whether all enemies have been killed.
     private bool endScene = false;
+    //gets game controller for logging the day number (didnt wanna edit the gamecontroller in UpdateAttackSlots incase I break it)
+    public GameController GCInfo;
 
     // Function to set the text in the selected attack slots to be the same as what's stored in the gameController on load
     private void UpdateAttackSlots()
@@ -67,6 +69,7 @@ public class BattleMenuEvent : MonoBehaviour
 
     void Start()
     {
+        GCInfo = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         UpdateAttackSlots();
         // Gets the player gameObject and PlayerAttack script for later use
         player = GameObject.FindWithTag("Player");
@@ -153,6 +156,7 @@ public class BattleMenuEvent : MonoBehaviour
         {
             Debug.Log("Enemies Killed");
             SceneManager.LoadScene(5);
+            GCInfo.dayNum = GCInfo.dayNum + 1;
         }
     }
 }
