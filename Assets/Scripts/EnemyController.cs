@@ -16,13 +16,15 @@ public class EnemyController : MonoBehaviour
     Animator Animator;
     AudioSource AudioSource;
     public AudioClip SoundFX;
+    public GameController gameController;
 
     void Start() 
     {
         player = GameObject.FindWithTag("Player");
         player.GetComponent<PlayerAttack>().enemies.Add(gameObject);
         originalPos = transform.position;
-        enemy.gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        enemy.gameController = gameController;
         Animator = gameObject.GetComponent<Animator>();
         AudioSource = GetComponent<AudioSource>();
     }
@@ -54,6 +56,7 @@ public class EnemyController : MonoBehaviour
                 Animator.SetTrigger("Attack");
                 canAttack = false;
                 enemy.finishedAttack = false;
+                gameController.GetComponent<GameController>().TurnSwap();
             }
         }
     }

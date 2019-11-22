@@ -185,6 +185,7 @@ public class PlayerAttack : MonoBehaviour
                 returning = false;
                 canAttack = false;
                 Animator.SetTrigger("Move");
+                gameController.GetComponent<GameController>().TurnSwap();
             }
         }        
     }

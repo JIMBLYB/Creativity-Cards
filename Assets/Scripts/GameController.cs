@@ -63,7 +63,29 @@ public class GameController : MonoBehaviour
 
     public void TurnSwap()
     {
-
+        if (turns.Count < currentTurn)
+        {
+            currentTurn = 0;
+        }
+        currentObject = turns[currentTurn];
+        if(currentObject != null)
+        {
+            if (currentObject.tag == "Player")
+            {
+                PlayerAttack player = currentObject.GetComponent<PlayerAttack>();
+                player.canAttack = true;
+            }
+            else
+            {
+                EnemyController enemy = currentObject.GetComponent<EnemyController>();
+                enemy.canAttack = true;
+            }
+        }
+        else
+        {
+            currentTurn++;
+            TurnSwap();
+        }       
         currentTurn++;
     }
 }
