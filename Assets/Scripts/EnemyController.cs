@@ -18,6 +18,11 @@ public class EnemyController : MonoBehaviour
     AudioSource AudioSource;
     public AudioClip SoundFX;
 
+    private void DisplayHealth()
+    {
+        
+    }
+
     void Start() 
     {
         player = GameObject.FindWithTag("Player");

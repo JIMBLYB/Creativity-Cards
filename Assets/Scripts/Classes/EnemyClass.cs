@@ -26,7 +26,7 @@ public class EnemyClass
     // Constructors for varying amounts of inputs
     public EnemyClass()
     {
-       health = 1;
+       health = 10;
        damage = 20;
        heavyModifier = 1.5f;
        movementSpeed = 5;
