@@ -9,6 +9,7 @@ public class MarrowHealth : MonoBehaviour
     public GameObject loseMarrow;
     public GameObject winMarrow;
     public GameObject regMarrow;
+    public GameObject moneyText;
     public GameObject menuButton, quitButton, nextButton;
     public GameObject dayTitle, marrowHealth, marrowTitle;
     private bool dayCycle, healthPerCycle;
@@ -25,6 +26,8 @@ public class MarrowHealth : MonoBehaviour
 
     void Update()
     {
+        showMoney();
+
         //tests to see if player's health has hit 0
         if (GCInfo.marrowHealth <= 0)
         {
@@ -69,5 +72,10 @@ public class MarrowHealth : MonoBehaviour
         {
             marrowHealth.GetComponent<Text>().text = "0%".ToString();
         }
+
+    }
+    public void showMoney()
+    {
+        moneyText.GetComponent<Text>().text = GCInfo.money.ToString();
     }
 }

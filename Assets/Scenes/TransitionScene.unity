@@ -1358,6 +1358,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb75d82197621104da9647e0e5c9f815, type: 3}
+--- !u!1 &1282539257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3301560357471415249, guid: cb75d82197621104da9647e0e5c9f815,
+    type: 3}
+  m_PrefabInstance: {fileID: 1282539256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1282539258 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3301560358202605027, guid: cb75d82197621104da9647e0e5c9f815,
@@ -1882,6 +1888,7 @@ MonoBehaviour:
   loseMarrow: {fileID: 806866087}
   winMarrow: {fileID: 982643763}
   regMarrow: {fileID: 301802634}
+  moneyText: {fileID: 1282539257}
   menuButton: {fileID: 319297684}
   quitButton: {fileID: 1534632233}
   nextButton: {fileID: 104622166}
