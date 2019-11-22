@@ -100,7 +100,7 @@ public class TeamSelection : MonoBehaviour
 
         if (allAttacks)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         }
         else
         {

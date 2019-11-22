@@ -13,12 +13,14 @@ public class MarrowHealth : MonoBehaviour
     public GameObject dayTitle, marrowHealth, marrowTitle;
     private bool dayCycle, healthPerCycle;
     public GameController GCInfo;
+    private bool lastRoundLose;
     // Start is called before the first frame update
     void Start()
     {
         GCInfo = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         dayCycle = true;
         healthPerCycle = true;
+        lastRoundLose = false;
     }
 
     void Update()
@@ -35,10 +37,11 @@ public class MarrowHealth : MonoBehaviour
             nextButton.SetActive(false);
             menuButton.SetActive(true);
             quitButton.SetActive(true);
+            lastRoundLose = true;
         }
 
         //tests to see if the game has reached max rounds
-        if (GCInfo.dayNum >= GCInfo.maxRounds)
+        if (GCInfo.dayNum >= GCInfo.maxRounds && lastRoundLose == false)
         {
             dayCycle = false;
             winMarrow.SetActive(true);
@@ -51,7 +54,7 @@ public class MarrowHealth : MonoBehaviour
         }
 
         //if day cycle is true, updates the day count, if conditions are met for it to be false it means that the end of the game was reached
-        if(dayCycle == true)
+        if (dayCycle == true)
         {
             dayTitle.GetComponent<Text>().text = "Day - " + GCInfo.dayNum.ToString();
 

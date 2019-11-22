@@ -155,8 +155,17 @@ public class BattleMenuEvent : MonoBehaviour
         else
         {
             Debug.Log("Enemies Killed");
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(1);
             GCInfo.dayNum = GCInfo.dayNum + 1;
+            GCInfo.health = 100;
+        }
+        if (GCInfo.health <= 0)
+        {
+            //if player health reaches zero, go to transition scene
+            SceneManager.LoadScene(1);
+            GCInfo.dayNum = GCInfo.dayNum + 1;
+            GCInfo.marrowHealth = GCInfo.marrowHealth - 50;
+            GCInfo.health = 100;
         }
     }
 }

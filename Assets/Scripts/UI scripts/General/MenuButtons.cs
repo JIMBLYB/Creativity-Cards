@@ -9,12 +9,16 @@ public class MenuButtons : MonoBehaviour {
     {
         SceneManager.LoadScene(1);
     }
+    public void PressShopButton()
+    {
+        SceneManager.LoadScene(2);
+    }
 
     // This method will define what happens when the user clicks the help button.
     // It is intneded to be run from a UI component.
     public void PressHelpButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
 
     }
 
@@ -36,7 +40,7 @@ public class MenuButtons : MonoBehaviour {
     //TeamSelect from ShopScene
     public void PressTeamButton()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
 
     }
 }
