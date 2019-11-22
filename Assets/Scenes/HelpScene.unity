@@ -241,7 +241,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -252,14 +252,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Quick, your prized vegetable field is being invaded by heroes looking for
-    a quick buck.
-
-    Use anything and anyone at your disposal to protect your winning marrow!
-
-    Buy more animals to expand your repertoire and join them in the battle that''s
-    entirely self defence; the Village''s Harvest Festival is only a week away, if
-    your marrow is destroyed then you''ll stand no chance of winning!'
+  m_Text: "Quick, your prized vegetable field is being invaded by heroes looking for
+    a quick buck.\nUse anything and anyone at your disposal to protect your winning
+    marrow!\nBuy more animals to expand your repertoire and join them in the battle
+    that's entirely self defence; the Village's Harvest Festival is only a week away,
+    if your marrow is destroyed then you'll stand no chance of winning! \nYou can't
+    live with second place so better get started"
 --- !u!222 &256980060
 CanvasRenderer:
   m_ObjectHideFlags: 0
