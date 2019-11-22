@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     public Object areaPrefab;
     private QTFramework QTFramework;
     private BattleMenuEvent battleMenuEvent;
+    Animator Animator;
 
     public float movementSpeed = 5.0f;
     // Bool to denote whether the player can attack or not.
@@ -102,6 +103,7 @@ public class PlayerAttack : MonoBehaviour
         // Gets the BattleMenuEvent component from the rootUI.
         rootUI = GameObject.FindWithTag("RootUI");
         battleMenuEvent = rootUI.GetComponent<BattleMenuEvent>();
+        Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -130,6 +132,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 //sets the player as moving towards an enemy
                 going = true;
+                Animator.SetTrigger("Move");
 
             }
         }
@@ -143,6 +146,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 //stops the player moving
                 going = false;
+                Animator.SetTrigger("Attack");
                 //starts the quicktime event
                 RunQuickTime(attackSelected);
             }
@@ -151,6 +155,7 @@ public class PlayerAttack : MonoBehaviour
         else if (rootUI.GetComponent<BattleMenuEvent>().QTResult < 2)
         {
             returning = true;
+            Animator.SetTrigger("Move");
             battleMenuEvent.targetedEnemy = targetedEnemy;
         }
 
@@ -166,6 +171,7 @@ public class PlayerAttack : MonoBehaviour
                 attacking = false;
                 returning = false;
                 canAttack = false;
+                Animator.SetTrigger("Move");
             }
         }        
     }
