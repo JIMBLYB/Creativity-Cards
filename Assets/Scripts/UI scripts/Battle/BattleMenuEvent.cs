@@ -37,7 +37,7 @@ public class BattleMenuEvent : MonoBehaviour
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
 
         // Gets the text component in all of the selected attack buttons
-        selectedAttacks = transform.GetComponentsInChildren<Text>();
+        selectedAttacks = transform.GetChild(0).GetComponentsInChildren<Text>();
 
         // Assigns the text in each button to the attacks stored in the gameController
         for (int i = 0; i < selectedAttacks.Length; i++)
