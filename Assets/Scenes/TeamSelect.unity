@@ -1488,7 +1488,7 @@ PrefabInstance:
     - target: {fileID: 8266598714285318221, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PressStartButton
+      value: PressShopButton
       objectReference: {fileID: 0}
     - target: {fileID: 8266598714285318221, guid: e6c12d5d299ae704b9e55bd5e5a89e7d,
         type: 3}

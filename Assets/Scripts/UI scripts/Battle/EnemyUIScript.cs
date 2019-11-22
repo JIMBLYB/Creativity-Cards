@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthscript : MonoBehaviour
+public class EnemyUIScript : MonoBehaviour
 {
     [SerializeField]
     private float barFillAmount;
