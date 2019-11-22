@@ -20,6 +20,8 @@ public class PlayerAttack : MonoBehaviour
     private QTFramework QTFramework;
     private BattleMenuEvent battleMenuEvent;
     Animator Animator;
+    AudioSource AudioSource;
+    public AudioClip SoundFX;
 
     public float movementSpeed = 5.0f;
     // Bool to denote whether the player can attack or not.
@@ -104,6 +106,7 @@ public class PlayerAttack : MonoBehaviour
         rootUI = GameObject.FindWithTag("RootUI");
         battleMenuEvent = rootUI.GetComponent<BattleMenuEvent>();
         Animator = GetComponent<Animator>();
+        AudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -147,6 +150,7 @@ public class PlayerAttack : MonoBehaviour
                 //stops the player moving
                 going = false;
                 Animator.SetTrigger("Attack");
+                AudioSource.PlayOneShot(SoundFX);
                 //starts the quicktime event
                 RunQuickTime(attackSelected);
             }

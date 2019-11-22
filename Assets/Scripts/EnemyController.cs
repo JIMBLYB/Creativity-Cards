@@ -14,13 +14,16 @@ public class EnemyController : MonoBehaviour
     private bool attacking = false;
     private Vector3 originalPos;
     Animator Animator;
-    
+    AudioSource AudioSource;
+    public AudioClip SoundFX;
+
     void Start() 
     {
         player = GameObject.FindWithTag("Player");
         originalPos = transform.position;
         enemy.gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         Animator = gameObject.GetComponent<Animator>();
+        AudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -39,6 +42,7 @@ public class EnemyController : MonoBehaviour
             {
                 going = false;
                 enemy.DecideAttack();
+                AudioSource.PlayOneShot(SoundFX);
             }
         }
         if (enemy.finishedAttack && canAttack)
