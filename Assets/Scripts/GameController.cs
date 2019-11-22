@@ -14,6 +14,10 @@ public class GameController : MonoBehaviour
     public bool sheepLock, cowLock, chickenLock, chickLock, pigLock, gooseLock;
     public bool battleEnd;
 
+    public List<GameObject> turns;
+    public GameObject currentObject;
+    public int currentTurn = 1;
+
     // String array to store all four of the currently selected attacks
     public string[] selectedAttack = new string[4];
 
@@ -55,5 +59,11 @@ public class GameController : MonoBehaviour
         pigLock = true;
         gooseLock = true;
 
+    }
+
+    public void TurnSwap()
+    {
+
+        currentTurn++;
     }
 }

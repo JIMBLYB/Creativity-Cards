@@ -22,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
     Animator Animator;
     AudioSource AudioSource;
     public AudioClip SoundFX;
+    public GameObject gameController;
+    public List<GameObject> enemies;
 
     public float movementSpeed = 5.0f;
     // Bool to denote whether the player can attack or not.
@@ -107,6 +109,13 @@ public class PlayerAttack : MonoBehaviour
         battleMenuEvent = rootUI.GetComponent<BattleMenuEvent>();
         Animator = GetComponent<Animator>();
         AudioSource = GetComponent<AudioSource>();
+
+        gameController = GameObject.FindGameObjectWithTag("GameController");
+        gameController.GetComponent<GameController>().turns.Add(gameObject);
+        foreach (var enemy in enemies)
+        {
+            gameController.GetComponent<GameController>().turns.Add(enemy);
+        }
     }
 
     void Update()

@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     void Start() 
     {
         player = GameObject.FindWithTag("Player");
+        player.GetComponent<PlayerAttack>().enemies.Add(gameObject);
         originalPos = transform.position;
         enemy.gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         Animator = gameObject.GetComponent<Animator>();
