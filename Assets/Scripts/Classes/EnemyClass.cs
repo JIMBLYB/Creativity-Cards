@@ -27,7 +27,7 @@ public class EnemyClass
     public EnemyClass()
     {
        health = 1;
-       damage = 1;
+       damage = 20;
        heavyModifier = 1.5f;
        movementSpeed = 5;
     }

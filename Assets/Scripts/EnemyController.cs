@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public bool canAttack = false;
     [SerializeField]
     private bool going = false;
+    [SerializeField]
     private bool attacking = false;
     private Vector3 originalPos;
     Animator Animator;
@@ -53,6 +54,7 @@ public class EnemyController : MonoBehaviour
                 Animator.SetTrigger("Attack");
                 canAttack = false;
                 enemy.finishedAttack = false;
+                attacking = false;
             }
         }
     }
